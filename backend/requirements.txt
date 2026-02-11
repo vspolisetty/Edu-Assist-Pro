@@ -1,0 +1,31 @@
+# Core API framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+
+# Groq API client (use latest for compatibility)
+groq>=0.4.1
+
+# PDF processing
+PyMuPDF>=1.23.14
+
+# Vector embeddings (use latest for huggingface-hub compatibility)
+sentence-transformers>=2.2.2
+numpy>=1.24.4
+
+# Web scraping and HTTP requests
+aiohttp>=3.9.1
+beautifulsoup4>=4.12.2
+requests>=2.31.0
+
+# Additional utilities
+python-multipart>=0.0.6  # For file uploads
+python-dotenv>=1.0.0     # For environment variables
+
+# Optional: Better HTML parsing
+lxml>=4.9.3
+
+# Development dependencies (optional)
+pytest>=7.4.3
+pytest-asyncio>=0.23.2
+black>=23.11.0
+flake8==6.1.0

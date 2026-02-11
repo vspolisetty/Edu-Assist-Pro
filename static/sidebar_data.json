@@ -1,0 +1,122 @@
+[
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "icon": "📐",
+      "topics": [
+        "Algebra",
+        "Geometry",
+        "Calculus",
+        "Statistics",
+        "Trigonometry",
+        "Linear Algebra",
+        "Discrete Math",
+        "Number Theory"
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "icon": "🧪",
+      "topics": [
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Earth Science",
+        "Astronomy",
+        "Environmental Science",
+        "Anatomy",
+        "Genetics"
+      ]
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "icon": "📚",
+      "topics": [
+        "Grammar",
+        "Literature",
+        "Writing",
+        "Reading Comprehension",
+        "Poetry",
+        "Creative Writing",
+        "Essay Writing",
+        "Vocabulary"
+      ]
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "icon": "🏛️",
+      "topics": [
+        "World History",
+        "American History",
+        "Ancient Civilizations",
+        "Modern History",
+        "European History",
+        "Asian History",
+        "Medieval History",
+        "Contemporary History"
+      ]
+    },
+    {
+      "id": "computer_science",
+      "name": "Computer Science",
+      "icon": "💻",
+      "topics": [
+        "Programming",
+        "Data Structures",
+        "Algorithms",
+        "Software Engineering",
+        "Database Systems",
+        "Web Development",
+        "Machine Learning",
+        "Cybersecurity"
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "icon": "🌍",
+      "topics": [
+        "Spanish",
+        "French",
+        "German",
+        "Italian",
+        "Mandarin",
+        "Japanese",
+        "Arabic",
+        "Portuguese"
+      ]
+    },
+    {
+      "id": "social_studies",
+      "name": "Social Studies",
+      "icon": "🌐",
+      "topics": [
+        "Geography",
+        "Economics",
+        "Political Science",
+        "Sociology",
+        "Psychology",
+        "Anthropology",
+        "Philosophy",
+        "Ethics"
+      ]
+    },
+    {
+      "id": "arts",
+      "name": "Arts",
+      "icon": "🎨",
+      "topics": [
+        "Visual Arts",
+        "Music Theory",
+        "Art History",
+        "Drawing",
+        "Painting",
+        "Sculpture",
+        "Digital Art",
+        "Photography"
+      ]
+    }
+  ]

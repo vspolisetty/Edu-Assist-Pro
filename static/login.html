@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="light-theme">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <img src="images/voxtech_logo.png" alt="VoxTech Logo" class="logo-image">
+                </div>
+                <p class="subtitle">Smart AI Study Companion</p>
+            </div>
+            
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-container">
+                        <span class="material-icons input-icon">person</span>
+                        <input type="text" id="username" name="username" required placeholder="Enter your username">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-container">
+                        <span class="material-icons input-icon">lock</span>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        <button type="button" class="toggle-password" id="toggle-password">
+                            <span class="material-icons">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="login-btn ripple">
+                    <span class="btn-text">Sign In</span>
+                    <span class="material-icons btn-icon">arrow_forward</span>
+                </button>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <button type="button" class="demo-btn ripple" id="demo-btn">
+                    <span class="material-icons">play_arrow</span>
+                    Try Demo (username: a, password: a)
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+            </div>
+        </div>
+        
+        <div class="theme-toggle-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="material-icons">light_mode</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="background-animation">
+        <div class="floating-icon">📐</div>
+        <div class="floating-icon">🧪</div>
+        <div class="floating-icon">📚</div>
+        <div class="floating-icon">🌍</div>
+        <div class="floating-icon">💻</div>
+        <div class="floating-icon">🎨</div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

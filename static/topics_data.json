@@ -1,0 +1,118 @@
+{
+  "mathematics": {
+    "Algebra": [
+      "Linear Equations and Inequalities",
+      "Quadratic Functions and Equations", 
+      "Polynomial Operations and Factoring",
+      "Rational Expressions and Functions",
+      "Exponential and Logarithmic Functions"
+    ],
+    "Geometry": [
+      "Properties of Triangles and Quadrilaterals",
+      "Circle Theorems and Arc Measurements",
+      "Area and Volume Calculations",
+      "Coordinate Geometry and Transformations",
+      "Trigonometric Ratios and Applications"
+    ],
+    "Calculus": [
+      "Limits and Continuity",
+      "Derivatives and Applications",
+      "Integration Techniques",
+      "Related Rates and Optimization",
+      "Fundamental Theorem of Calculus"
+    ],
+    "Statistics": [
+      "Data Collection and Sampling Methods",
+      "Descriptive Statistics and Measures",
+      "Probability Distributions",
+      "Hypothesis Testing and Confidence Intervals",
+      "Regression Analysis and Correlation"
+    ],
+    "Trigonometry": [
+      "Unit Circle and Radian Measure",
+      "Trigonometric Functions and Graphs",
+      "Trigonometric Identities and Equations",
+      "Law of Sines and Law of Cosines",
+      "Inverse Trigonometric Functions"
+    ],
+    "Linear Algebra": [
+      "Matrices and Matrix Operations",
+      "Systems of Linear Equations",
+      "Vector Spaces and Linear Independence",
+      "Eigenvalues and Eigenvectors",
+      "Linear Transformations"
+    ],
+    "Discrete Math": [
+      "Set Theory and Logic",
+      "Combinatorics and Counting Principles",
+      "Graph Theory and Trees",
+      "Recurrence Relations",
+      "Mathematical Induction and Proofs"
+    ],
+    "Number Theory": [
+      "Prime Numbers and Factorization",
+      "Greatest Common Divisor and LCM",
+      "Modular Arithmetic",
+      "Diophantine Equations",
+      "Cryptographic Applications"
+    ]
+  },
+  "science": {
+    "Physics": [
+      "Kinematics and Motion in One Dimension",
+      "Forces and Newton's Laws of Motion",
+      "Energy, Work, and Power",
+      "Momentum and Collisions",
+      "Waves, Sound, and Light"
+    ],
+    "Chemistry": [
+      "Atomic Structure and Periodic Trends",
+      "Chemical Bonding and Molecular Geometry",
+      "Stoichiometry and Chemical Reactions",
+      "Acids, Bases, and pH",
+      "Thermodynamics and Kinetics"
+    ],
+    "Biology": [
+      "Cell Structure and Function",
+      "DNA, RNA, and Protein Synthesis",
+      "Photosynthesis and Cellular Respiration",
+      "Evolution and Natural Selection",
+      "Ecology and Environmental Systems"
+    ],
+    "Earth Science": [
+      "Plate Tectonics and Continental Drift",
+      "Rock Cycle and Mineral Formation",
+      "Weather Patterns and Climate Systems",
+      "Water Cycle and Ocean Currents",
+      "Geological Time and Fossil Record"
+    ],
+    "Astronomy": [
+      "Solar System Formation and Planets",
+      "Stellar Evolution and Life Cycles",
+      "Galaxies and Large-Scale Structure",
+      "Cosmology and the Big Bang Theory",
+      "Exoplanets and Search for Life"
+    ],
+    "Environmental Science": [
+      "Climate Change and Global Warming",
+      "Renewable and Non-renewable Resources",
+      "Pollution and Environmental Impact",
+      "Biodiversity and Conservation",
+      "Sustainable Development Practices"
+    ],
+    "Anatomy": [
+      "Cardiovascular System and Blood Circulation",
+      "Nervous System and Brain Function",
+      "Respiratory System and Gas Exchange",
+      "Digestive System and Metabolism",
+      "Musculoskeletal System and Movement"
+    ],
+    "Genetics": [
+      "Mendelian Inheritance Patterns",
+      "Chromosomes and Genetic Mapping",
+      "Gene Expression and Regulation",
+      "Genetic Mutations and Disorders",
+      "Population Genetics and Evolution"
+    ]
+  }
+}

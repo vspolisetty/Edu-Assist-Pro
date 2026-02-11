@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist - Smart AI Study Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="images/voxtech_logo.png" alt="VoxTech Logo" class="logo-image">
+            </div>
+            <button class="home-button" onclick="window.location.href='dashboard.html'" title="Back to Dashboard">
+                <span class="material-icons">home</span>
+                <span class="home-text">Dashboard</span>
+            </button>
+        </div>
+        
+        <div class="nav-center">
+            <div class="current-context">
+                <span id="current-subject">Mathematics</span>
+                <span class="separator">–</span>
+                <span id="current-topic">Algebra</span>
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search topics...">
+                <span class="material-icons search-icon">search</span>
+            </div>
+            
+            <button class="nav-button theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="material-icons">light_mode</span>
+            </button>
+            
+            <button class="nav-button" aria-label="Settings">
+                <span class="material-icons">settings</span>
+            </button>
+            
+            <button class="nav-button" aria-label="User profile">
+                <span class="material-icons" onclick="window.location.href='dashboard.html'">account_circle</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="sidebar-header">
+                <h3>Subjects</h3>
+            </div>
+            <div class="subjects-list" id="subjects-list">
+                <!-- Subjects will be populated by JavaScript -->
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                    <div class="welcome-content">
+                        <h2>Welcome to Edu Assist! 👋</h2>
+                        <p>I'm your AI study companion, ready to help you learn and understand any topic. Ask me anything about <strong id="welcome-subject">Mathematics</strong>!</p>
+                    </div>
+                </div>
+                
+                <!-- Sample messages -->
+                <div class="message ai-message">
+                    <div class="message-avatar">
+                        <span class="material-icons">smart_toy</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Hello! I'm here to help you with Mathematics - Algebra. What would you like to learn about today?</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn" title="Copy message">
+                                <span class="material-icons">content_copy</span>
+                            </button>
+                            <button class="action-btn" title="Save message">
+                                <span class="material-icons">bookmark</span>
+                            </button>
+                            <button class="action-btn" title="Like message">
+                                <span class="material-icons">thumb_up</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="message student-message">
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Can you explain quadratic equations?</p>
+                        </div>
+                        <div class="message-time">2:34 PM</div>
+                    </div>
+                </div>
+                
+                <div class="message ai-message">
+                    <div class="message-avatar">
+                        <span class="material-icons">smart_toy</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Absolutely! A quadratic equation is a polynomial equation of degree 2. The standard form is:</p>
+                            <div class="formula-block">
+                                <code>ax² + bx + c = 0</code>
+                            </div>
+                            <p>Where <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are constants, and <strong>a ≠ 0</strong>.</p>
+                            <p>Would you like me to show you how to solve them using the quadratic formula?</p>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn" title="Copy message">
+                                <span class="material-icons">content_copy</span>
+                            </button>
+                            <button class="action-btn" title="Save message">
+                                <span class="material-icons">bookmark</span>
+                            </button>
+                            <button class="action-btn" title="Like message">
+                                <span class="material-icons">thumb_up</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="xp-bar">
+                    <div class="xp-info">
+                        <span class="xp-level">Level 3</span>
+                        <span class="xp-progress">240 / 500 XP</span>
+                    </div>
+                    <div class="xp-progress-bar">
+                        <div class="xp-fill" style="width: 48%"></div>
+                    </div>
+                </div>
+                
+                <div class="input-controls">
+                    <button class="input-btn mic-btn" id="mic-btn" aria-label="Voice input">
+                        <span class="material-icons">mic</span>
+                    </button>
+                    
+                    <button class="input-btn attach-btn" aria-label="Attach file">
+                        <span class="material-icons">attach_file</span>
+                    </button>
+                    
+                    <div class="eli5-toggle">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="eli5-toggle">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">ELI5 🧠</span>
+                        </label>
+                    </div>
+                    
+                    <div class="message-input-container">
+                        <input type="text" class="message-input" id="message-input" placeholder="Ask me anything...">
+                        <button class="send-btn" id="send-btn" aria-label="Send message">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="tab-btn active" data-tab="topics">Topics</button>
+                <button class="tab-btn" data-tab="questions">Questions</button>
+                <button class="tab-btn" data-tab="bookmarks">Bookmarks</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-panel active" id="topics-panel">
+                    <h3>Related Topics</h3>
+                    <div class="topics-content">
+                        <div class="topic-list">
+                            <!-- Topics will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-panel" id="questions-panel">
+                    <h3>Suggested Questions</h3>
+                    <div class="suggested-questions">
+                        <button class="question-btn">What is a variable in algebra?</button>
+                        <button class="question-btn">How do I solve linear equations?</button>
+                        <button class="question-btn">What's the quadratic formula?</button>
+                        <button class="question-btn">How do I factor polynomials?</button>
+                        <button class="question-btn">What are functions?</button>
+                    </div>
+                </div>
+                
+                <div class="tab-panel" id="bookmarks-panel">
+                    <h3>Bookmarked Q&As</h3>
+                    <div class="bookmarks-list">
+                        <div class="bookmark-item">
+                            <p><strong>Q:</strong> What is the quadratic formula?</p>
+                            <p><strong>A:</strong> The quadratic formula is x = (-b ± √(b²-4ac)) / 2a</p>
+                            <span class="bookmark-date">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="rag-integration.js"></script>
+</html>

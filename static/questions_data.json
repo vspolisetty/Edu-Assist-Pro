@@ -1,0 +1,118 @@
+{
+  "mathematics": {
+    "Algebra": [
+      "How do I solve linear equations with one variable?",
+      "What's the difference between linear and quadratic equations?",
+      "How do I factor polynomials?",
+      "What are the rules for working with exponents?",
+      "How do I solve systems of equations?"
+    ],
+    "Geometry": [
+      "How do I calculate the area of different shapes?",
+      "What's the Pythagorean theorem and how do I use it?",
+      "How do I find angles in triangles?",
+      "What's the difference between perimeter and area?",
+      "How do I calculate the volume of 3D shapes?"
+    ],
+    "Calculus": [
+      "What is a derivative and how do I find it?",
+      "How do I solve basic integration problems?",
+      "What's the difference between differential and integral calculus?",
+      "How do I find the slope of a curve at any point?",
+      "What are limits and why are they important?"
+    ],
+    "Statistics": [
+      "How do I calculate mean, median, and mode?",
+      "What's the difference between population and sample?",
+      "How do I interpret graphs and charts?",
+      "What is standard deviation and how do I calculate it?",
+      "How do I determine if data is normally distributed?"
+    ],
+    "Trigonometry": [
+      "What are sine, cosine, and tangent?",
+      "How do I solve right triangle problems?",
+      "What's the unit circle and how do I use it?",
+      "How do I convert between degrees and radians?",
+      "What are trigonometric identities?"
+    ],
+    "Linear Algebra": [
+      "What are matrices and how do I work with them?",
+      "How do I solve systems of linear equations using matrices?",
+      "What are vectors and vector operations?",
+      "How do I find the determinant of a matrix?",
+      "What is eigenvalues and eigenvectors?"
+    ],
+    "Discrete Math": [
+      "What is combinatorics and how do I count arrangements?",
+      "How do I work with sets and set operations?",
+      "What are logic statements and truth tables?",
+      "How do I solve problems using graph theory?",
+      "What is mathematical induction?"
+    ],
+    "Number Theory": [
+      "How do I find the greatest common divisor (GCD)?",
+      "What are prime numbers and how do I find them?",
+      "How do I solve modular arithmetic problems?",
+      "What are Fibonacci numbers and their properties?",
+      "How do I work with divisibility rules?"
+    ]
+  },
+  "science": {
+    "Physics": [
+      "How do I calculate velocity and acceleration?",
+      "What are Newton's three laws of motion?",
+      "How do I solve problems involving force and momentum?",
+      "What's the difference between kinetic and potential energy?",
+      "How do electric circuits work?"
+    ],
+    "Chemistry": [
+      "How do I balance chemical equations?",
+      "What's the difference between ionic and covalent bonds?",
+      "How do I calculate molarity and molality?",
+      "What are acids, bases, and pH?",
+      "How do I predict chemical reactions?"
+    ],
+    "Biology": [
+      "How does photosynthesis work in plants?",
+      "What's the difference between mitosis and meiosis?",
+      "How do genes and DNA determine traits?",
+      "What are the different types of ecosystems?",
+      "How does the human digestive system work?"
+    ],
+    "Earth Science": [
+      "How are rocks and minerals formed?",
+      "What causes earthquakes and volcanic eruptions?",
+      "How do weather patterns and climate work?",
+      "What's the water cycle and its importance?",
+      "How do fossils form and what do they tell us?"
+    ],
+    "Astronomy": [
+      "How are stars born and how do they die?",
+      "What's the difference between planets, moons, and asteroids?",
+      "How do we measure distances in space?",
+      "What are black holes and how do they form?",
+      "How does our solar system compare to others?"
+    ],
+    "Environmental Science": [
+      "What causes climate change and global warming?",
+      "How do human activities affect ecosystems?",
+      "What are renewable vs non-renewable energy sources?",
+      "How does pollution affect air and water quality?",
+      "What can we do to protect endangered species?"
+    ],
+    "Anatomy": [
+      "How does the human heart and circulatory system work?",
+      "What are the main parts of the nervous system?",
+      "How do muscles and bones work together for movement?",
+      "What's the function of different organs in the body?",
+      "How does the immune system protect us from disease?"
+    ],
+    "Genetics": [
+      "How do dominant and recessive genes work?",
+      "What's the difference between genotype and phenotype?",
+      "How do genetic mutations occur and spread?",
+      "What are chromosomes and how many do humans have?",
+      "How does genetic inheritance work in families?"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "edu-assist-chat-interface",
+    "version": "1.0.0",
+    "description": "Edu Assist - Smart AI Study Companion",
+    "main": "index.html",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview",
+      "serve": "python -m http.server 3000",
+      "start": "npm run dev"
+    },
+    "keywords": ["education", "ai", "chat", "study", "material-design"],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+      "vite": "^5.4.2"
+    }
+  }
