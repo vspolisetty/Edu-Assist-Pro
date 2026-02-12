@@ -1,122 +1,122 @@
 [
     {
-      "id": "mathematics",
-      "name": "Mathematics",
-      "icon": "📐",
+      "id": "compliance",
+      "name": "Compliance Training",
+      "icon": "�",
       "topics": [
-        "Algebra",
-        "Geometry",
-        "Calculus",
-        "Statistics",
-        "Trigonometry",
-        "Linear Algebra",
-        "Discrete Math",
-        "Number Theory"
+        "Company Policies",
+        "Data Privacy & GDPR",
+        "Workplace Safety",
+        "Anti-Harassment",
+        "Ethics & Conduct",
+        "Regulatory Requirements",
+        "Industry Standards",
+        "Audit Procedures"
       ]
     },
     {
-      "id": "science",
-      "name": "Science",
-      "icon": "🧪",
+      "id": "security",
+      "name": "Security Awareness",
+      "icon": "🔒",
       "topics": [
-        "Physics",
-        "Chemistry",
-        "Biology",
-        "Earth Science",
-        "Astronomy",
-        "Environmental Science",
-        "Anatomy",
-        "Genetics"
+        "Cybersecurity Basics",
+        "Phishing Prevention",
+        "Password Management",
+        "Incident Reporting",
+        "Data Classification",
+        "Access Control",
+        "Social Engineering",
+        "Secure Communications"
       ]
     },
     {
-      "id": "english",
-      "name": "English",
-      "icon": "📚",
+      "id": "leadership",
+      "name": "Leadership Development",
+      "icon": "�",
       "topics": [
-        "Grammar",
-        "Literature",
-        "Writing",
-        "Reading Comprehension",
-        "Poetry",
-        "Creative Writing",
-        "Essay Writing",
-        "Vocabulary"
+        "Team Management",
+        "Communication Skills",
+        "Conflict Resolution",
+        "Performance Reviews",
+        "Strategic Thinking",
+        "Change Management",
+        "Delegation",
+        "Mentoring"
       ]
     },
     {
-      "id": "history",
-      "name": "History",
-      "icon": "🏛️",
+      "id": "technical",
+      "name": "Technical Skills",
+      "icon": "⚙️",
       "topics": [
-        "World History",
-        "American History",
-        "Ancient Civilizations",
-        "Modern History",
-        "European History",
-        "Asian History",
-        "Medieval History",
-        "Contemporary History"
+        "Tools & Systems",
+        "Process Documentation",
+        "Quality Standards",
+        "Best Practices",
+        "Project Management",
+        "Agile Methodology",
+        "Technical Writing",
+        "Troubleshooting"
       ]
     },
     {
-      "id": "computer_science",
-      "name": "Computer Science",
-      "icon": "💻",
+      "id": "hr_policies",
+      "name": "HR & Benefits",
+      "icon": "�",
       "topics": [
-        "Programming",
-        "Data Structures",
-        "Algorithms",
-        "Software Engineering",
-        "Database Systems",
-        "Web Development",
-        "Machine Learning",
-        "Cybersecurity"
+        "Employee Handbook",
+        "Benefits Overview",
+        "Time Off Policies",
+        "Professional Development",
+        "Performance Goals",
+        "Compensation Structure",
+        "Workplace Culture",
+        "Remote Work Guidelines"
       ]
     },
     {
-      "id": "languages",
-      "name": "Languages",
-      "icon": "🌍",
+      "id": "customer_service",
+      "name": "Customer Relations",
+      "icon": "🤝",
       "topics": [
-        "Spanish",
-        "French",
-        "German",
-        "Italian",
-        "Mandarin",
-        "Japanese",
-        "Arabic",
-        "Portuguese"
+        "Client Communication",
+        "Service Standards",
+        "Complaint Handling",
+        "Account Management",
+        "Sales Processes",
+        "CRM Systems",
+        "Negotiation Skills",
+        "Relationship Building"
       ]
     },
     {
-      "id": "social_studies",
-      "name": "Social Studies",
-      "icon": "🌐",
+      "id": "operations",
+      "name": "Operations",
+      "icon": "�",
       "topics": [
-        "Geography",
-        "Economics",
-        "Political Science",
-        "Sociology",
-        "Psychology",
-        "Anthropology",
-        "Philosophy",
-        "Ethics"
+        "Standard Procedures",
+        "Risk Management",
+        "Supply Chain",
+        "Inventory Management",
+        "Vendor Relations",
+        "Budget Management",
+        "Reporting",
+        "Continuous Improvement"
       ]
     },
     {
-      "id": "arts",
-      "name": "Arts",
-      "icon": "🎨",
+      "id": "professional_dev",
+      "name": "Professional Growth",
+      "icon": "📈",
       "topics": [
-        "Visual Arts",
-        "Music Theory",
-        "Art History",
-        "Drawing",
-        "Painting",
-        "Sculpture",
-        "Digital Art",
-        "Photography"
+        "Career Planning",
+        "Public Speaking",
+        "Time Management",
+        "Critical Thinking",
+        "Problem Solving",
+        "Networking",
+        "Personal Branding",
+        "Work-Life Balance"
       ]
     }
   ]

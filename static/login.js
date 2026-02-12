@@ -19,10 +19,6 @@ class LoginManager {
         const loginForm = document.getElementById('login-form');
         loginForm.addEventListener('submit', (e) => this.handleLogin(e));
         
-        // Demo button
-        const demoBtn = document.getElementById('demo-btn');
-        demoBtn.addEventListener('click', () => this.fillDemoCredentials());
-        
         // Password toggle
         const togglePassword = document.getElementById('toggle-password');
         togglePassword.addEventListener('click', () => this.togglePasswordVisibility());
@@ -155,27 +151,42 @@ class LoginManager {
         loginBtn.classList.add('loading');
         
         try {
-            // Simulate API call
-            await this.simulateLogin(username, password);
-            
-            // Store user data
-            const userData = {
-                username: username,
-                loginTime: new Date().toISOString(),
-                theme: localStorage.getItem('theme') || 'light'
-            };
-            
-            localStorage.setItem('currentUser', JSON.stringify(userData));
-            
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.detail || 'Invalid credentials. Please try again.');
+            }
+
+            const data = await res.json();
+
+            // Check if 2FA is required
+            if (data.requires_2fa) {
+                // Store 2FA session data and redirect to 2FA page
+                sessionStorage.setItem('twofa_data', JSON.stringify(data));
+                window.location.href = 'twofa.html';
+                return;
+            }
+
+            // Store token and user profile
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('currentUser', JSON.stringify(data.user));
+
             if (rememberMe) {
                 localStorage.setItem('rememberedUser', username);
+            } else {
+                localStorage.removeItem('rememberedUser');
             }
             
             // Show success and redirect
             this.showSuccess();
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
-            }, 1500);
+            }, 1200);
             
         } catch (error) {
             this.showLoginError(error.message);
@@ -183,27 +194,6 @@ class LoginManager {
         } finally {
             loginBtn.classList.remove('loading');
         }
-    }
-    
-    async simulateLogin(username, password) {
-        return new Promise((resolve, reject) => {
-            try {
-                // Check demo credentials
-                if (username === 'a' && password === 'a') {
-                    console.log('Demo credentials accepted');
-                    resolve();
-                    return;
-                }
-                
-                // For other credentials, simulate API call
-                setTimeout(() => {
-                    reject(new Error('Invalid username or password'));
-                }, 1500);
-            } catch (error) {
-                console.error('Login simulation error:', error);
-                reject(error);
-            }
-        });
     }
     
     showLoginError(message) {

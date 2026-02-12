@@ -1,6 +1,6 @@
-# 🎓 Edu Assist: Smart AI Study Companion
+# � Edu Assist Pro: Corporate Training Platform
 
-An AI-powered educational chatbot platform with RAG (Retrieval Augmented Generation) capabilities. Built for students, featuring PDF knowledge base integration, web search fallback, and an interactive learning interface.
+An AI-powered corporate training platform with RAG (Retrieval Augmented Generation) capabilities. Built for enterprise teams, featuring PDF knowledge base integration, web search fallback, and a professional training interface.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)
@@ -8,19 +8,19 @@ An AI-powered educational chatbot platform with RAG (Retrieval Augmented Generat
 
 ## ✨ Features
 
-- 🤖 **AI-Powered Chat** - Intelligent responses using Groq LLM (Llama models)
-- 📚 **RAG System** - Search uploaded PDFs for context-aware answers
+- 🤖 **AI-Powered Training Assistant** - Intelligent responses using Groq LLM (Llama models)
+- 📚 **RAG System** - Search uploaded training documents for context-aware answers
 - 🔍 **Web Search Fallback** - Automatically searches the web when documents don't have answers
-- 🧒 **ELI5 Mode** - "Explain Like I'm 5" for simplified explanations
-- 📊 **Progress Tracking** - Track study sessions, XP points, and achievements
-- 🌓 **Dark/Light Theme** - Easy on the eyes for long study sessions
+- 📋 **Training Modules** - Compliance, Security, Leadership, Technical Skills & more
+- 📊 **Training Analytics** - Track courses completed, certifications, and training hours
+- 🌓 **Dark/Light Theme** - Professional look for corporate environments
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
 
 ## 🖼️ Screenshots
 
-| Login Page | Chat Interface | Dashboard |
+| Login Portal | Training Chat | Training Dashboard |
 |------------|----------------|-----------|
-| Modern login with demo mode | Interactive AI chat | Progress tracking |
+| Professional corporate login | AI training assistant | Progress & analytics |
 
 ---
 

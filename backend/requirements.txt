@@ -21,6 +21,11 @@ requests>=2.31.0
 python-multipart>=0.0.6  # For file uploads
 python-dotenv>=1.0.0     # For environment variables
 
+# Authentication
+PyJWT>=2.8.0             # JWT tokens
+bcrypt>=4.0.0            # Password hashing
+passlib>=1.7.4           # Password hashing utilities
+
 # Optional: Better HTML parsing
 lxml>=4.9.3
 

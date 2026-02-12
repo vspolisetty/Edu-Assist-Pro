@@ -17,39 +17,39 @@ body {
 
 /* CSS Variables for Theming */
 .light-theme {
-    --primary-color: #1976d2;
-    --primary-variant: #1565c0;
-    --secondary-color: #388e3c;
-    --accent-color: #ff9800;
+    --primary-color: #1a3a5c;
+    --primary-variant: #0f2b47;
+    --secondary-color: #2c7a7b;
+    --accent-color: #2c7a7b;
     --surface-color: #ffffff;
-    --surface-variant: #f5f5f5;
-    --background-color: #fafafa;
-    --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --text-color: #212121;
-    --text-secondary: #757575;
-    --border-color: #e0e0e0;
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-elevated: 0 8px 25px rgba(0,0,0,0.15);
-    --error-color: #f44336;
-    --success-color: #4caf50;
+    --surface-variant: #f0f4f8;
+    --background-color: #f7f9fc;
+    --background-gradient: linear-gradient(135deg, #1a3a5c 0%, #2c5282 50%, #2c7a7b 100%);
+    --text-color: #1a202c;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-elevated: 0 10px 40px rgba(26,58,92,0.15);
+    --error-color: #dc2626;
+    --success-color: #059669;
 }
 
 .dark-theme {
-    --primary-color: #64b5f6;
-    --primary-variant: #42a5f5;
-    --secondary-color: #81c784;
-    --accent-color: #ffb74d;
-    --surface-color: #1e1e1e;
-    --surface-variant: #2d2d2d;
-    --background-color: #121212;
-    --background-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    --text-color: #ffffff;
-    --text-secondary: #b0b0b0;
-    --border-color: #373737;
+    --primary-color: #63b3ed;
+    --primary-variant: #4299e1;
+    --secondary-color: #4fd1c5;
+    --accent-color: #4fd1c5;
+    --surface-color: #1a202c;
+    --surface-variant: #2d3748;
+    --background-color: #0f1724;
+    --background-gradient: linear-gradient(135deg, #0f1724 0%, #1a202c 50%, #1a3a4c 100%);
+    --text-color: #f7fafc;
+    --text-secondary: #a0aec0;
+    --border-color: #2d3748;
     --shadow: 0 4px 6px rgba(0,0,0,0.3);
-    --shadow-elevated: 0 8px 25px rgba(0,0,0,0.4);
-    --error-color: #ef5350;
-    --success-color: #66bb6a;
+    --shadow-elevated: 0 10px 40px rgba(0,0,0,0.4);
+    --error-color: #fc8181;
+    --success-color: #68d391;
 }
 
 /* Login Container */
@@ -93,27 +93,20 @@ body {
     height: 40px;
     width: auto;
     object-fit: contain;
-    animation: bounce 2s infinite;
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.03);
 }
 
 /* Theme-specific logo adjustments */
 .light-theme .logo-image {
-    /* Invert white logo to black for light mode visibility */
     filter: invert(1);
-    animation: bounce 2s infinite;
 }
 
 .dark-theme .logo-image {
-    /* Keep logo white in dark mode */
     filter: none;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
 }
 
 .logo h1 {
@@ -124,8 +117,10 @@ body {
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 /* Form Styles */
@@ -178,7 +173,7 @@ body {
     outline: none;
     border-color: var(--primary-color);
     background-color: var(--surface-color);
-    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+    box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
 }
 
 .input-container input::placeholder {
@@ -382,7 +377,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Background Animation */
+/* Background Animation - Subtle Professional Shapes */
 .background-animation {
     position: fixed;
     top: 0;
@@ -391,55 +386,34 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    overflow: hidden;
 }
 
-.floating-icon {
+.bg-shape {
     position: absolute;
-    font-size: 24px;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
 }
 
-.floating-icon:nth-child(1) {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
+.bg-shape-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -200px;
 }
 
-.floating-icon:nth-child(2) {
-    top: 60%;
-    left: 80%;
-    animation-delay: 1s;
+.bg-shape-2 {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    left: -100px;
 }
 
-.floating-icon:nth-child(3) {
-    top: 80%;
-    left: 20%;
-    animation-delay: 2s;
-}
-
-.floating-icon:nth-child(4) {
-    top: 30%;
-    left: 70%;
-    animation-delay: 3s;
-}
-
-.floating-icon:nth-child(5) {
-    top: 70%;
-    left: 60%;
-    animation-delay: 4s;
-}
-
-.floating-icon:nth-child(6) {
+.bg-shape-3 {
+    width: 300px;
+    height: 300px;
     top: 40%;
-    left: 30%;
-    animation-delay: 5s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(5deg); }
-    66% { transform: translateY(10px) rotate(-5deg); }
+    left: 60%;
 }
 
 /* Ripple Effect */

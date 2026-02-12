@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist Pro — Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- ── Navigation ── -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a class="nav-logo" href="dashboard.html">
+                <span class="material-icons">school</span>
+                <span class="logo-text">Edu Assist Pro</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <a href="courses.html" class="nav-link">
+                <span class="material-icons">menu_book</span> Courses
+            </a>
+            <a href="dashboard.html" class="nav-link">
+                <span class="material-icons">dashboard</span> Dashboard
+            </a>
+            <a href="index.html" class="nav-link">
+                <span class="material-icons">smart_toy</span> AI Assistant
+            </a>
+            <a href="admin.html" class="nav-link active">
+                <span class="material-icons">admin_panel_settings</span> Admin
+            </a>
+        </div>
+        <div class="nav-right">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">
+                <span class="material-icons">dark_mode</span>
+            </button>
+            <div class="user-menu-wrapper">
+                <button class="user-menu" id="userMenuBtn">
+                    <span class="material-icons">account_circle</span>
+                    <span id="userName">Admin</span>
+                    <span class="material-icons arrow">expand_more</span>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <span class="material-icons">dashboard</span> Dashboard
+                    </a>
+                    <button class="dropdown-item" id="settingsBtn">
+                        <span class="material-icons">settings</span> Settings
+                    </button>
+                    <hr>
+                    <button class="dropdown-item logout" id="logoutBtn">
+                        <span class="material-icons">logout</span> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Main Content ── -->
+    <main class="admin-main">
+        <!-- Header -->
+        <div class="admin-header">
+            <div>
+                <h1><span class="material-icons">admin_panel_settings</span> Admin Panel</h1>
+                <p class="subtitle">Manage users, roles, and review system activity</p>
+            </div>
+            <button class="btn btn-primary" id="addUserBtn">
+                <span class="material-icons">person_add</span> Add User
+            </button>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="material-icons">people</span>
+                <div class="stat-info">
+                    <div class="stat-value" id="statTotal">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="material-icons">school</span>
+                <div class="stat-info">
+                    <div class="stat-value" id="statTrainees">0</div>
+                    <div class="stat-label">Trainees</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="material-icons">supervisor_account</span>
+                <div class="stat-info">
+                    <div class="stat-value" id="statManagers">0</div>
+                    <div class="stat-label">Managers</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="material-icons">shield</span>
+                <div class="stat-info">
+                    <div class="stat-value" id="statAdmins">0</div>
+                    <div class="stat-label">Admins</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="tab active" data-tab="users">
+                <span class="material-icons">people</span> Users
+            </button>
+            <button class="tab" data-tab="reports">
+                <span class="material-icons">bar_chart</span> Reports
+            </button>
+            <button class="tab" data-tab="security">
+                <span class="material-icons">security</span> Security
+            </button>
+            <button class="tab" data-tab="twofa">
+                <span class="material-icons">verified_user</span> 2FA
+            </button>
+            <button class="tab" data-tab="audit">
+                <span class="material-icons">history</span> Audit Log
+            </button>
+        </div>
+
+        <!-- Users Tab -->
+        <div class="tab-content" id="tabUsers">
+            <div class="table-toolbar">
+                <div class="search-box">
+                    <span class="material-icons">search</span>
+                    <input type="text" id="userSearch" placeholder="Search users...">
+                </div>
+                <div class="filter-chips">
+                    <button class="chip active" data-role="all">All</button>
+                    <button class="chip" data-role="trainee">Trainees</button>
+                    <button class="chip" data-role="manager">Managers</button>
+                    <button class="chip" data-role="instructor">Instructors</button>
+                    <button class="chip" data-role="admin">Admins</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr><td colspan="7" class="loading-cell">Loading users...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reports Tab -->
+        <div class="tab-content hidden" id="tabReports">
+            <!-- Export buttons -->
+            <div class="report-actions">
+                <button class="btn btn-secondary btn-sm" onclick="ADMIN.exportCSV('team')">
+                    <span class="material-icons">download</span> Export Team CSV
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="ADMIN.exportCSV('scores')">
+                    <span class="material-icons">download</span> Export Scores CSV
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="ADMIN.exportCSV('compliance')">
+                    <span class="material-icons">download</span> Export Compliance CSV
+                </button>
+            </div>
+
+            <!-- Report summary cards -->
+            <div class="report-grid">
+                <div class="report-card">
+                    <h3><span class="material-icons">groups</span> Team Completion</h3>
+                    <div class="report-stats" id="teamStats">Loading...</div>
+                    <div class="report-table-wrap">
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Dept</th>
+                                    <th>Enrolled</th>
+                                    <th>Completed</th>
+                                    <th>Rate</th>
+                                    <th>Avg Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3><span class="material-icons">assessment</span> Score Distribution</h3>
+                    <div class="report-stats" id="scoreStats">Loading...</div>
+                    <div class="score-bars" id="scoreBars"></div>
+                    <div class="report-table-wrap" style="margin-top:16px">
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Attempts</th>
+                                    <th>Avg</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Pass %</th>
+                                </tr>
+                            </thead>
+                            <tbody id="courseScoreBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="report-card full-width">
+                    <h3><span class="material-icons">verified_user</span> Compliance Status</h3>
+                    <div class="report-stats" id="complianceStats">Loading...</div>
+                    <div class="report-table-wrap">
+                        <table class="report-table">
+                            <thead id="complianceHead">
+                                <tr><th>Loading...</th></tr>
+                            </thead>
+                            <tbody id="complianceBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Tab -->
+        <div class="tab-content hidden" id="tabSecurity">
+            <!-- Security Stats -->
+            <div class="security-stats-row">
+                <div class="sec-stat">
+                    <span class="material-icons">http</span>
+                    <div class="sec-stat-value" id="secTotalReqs">—</div>
+                    <div class="sec-stat-label">Requests Today</div>
+                </div>
+                <div class="sec-stat warning">
+                    <span class="material-icons">lock_open</span>
+                    <div class="sec-stat-value" id="secFailedLogins">—</div>
+                    <div class="sec-stat-label">Failed Logins</div>
+                </div>
+                <div class="sec-stat danger">
+                    <span class="material-icons">block</span>
+                    <div class="sec-stat-value" id="secForbidden">—</div>
+                    <div class="sec-stat-label">Forbidden (403)</div>
+                </div>
+                <div class="sec-stat danger">
+                    <span class="material-icons">speed</span>
+                    <div class="sec-stat-value" id="secRateLimited">—</div>
+                    <div class="sec-stat-label">Rate Limited (429)</div>
+                </div>
+                <div class="sec-stat">
+                    <span class="material-icons">dns</span>
+                    <div class="sec-stat-value" id="secUniqueIPs">—</div>
+                    <div class="sec-stat-label">Unique IPs</div>
+                </div>
+                <div class="sec-stat">
+                    <span class="material-icons">timer</span>
+                    <div class="sec-stat-value" id="secAvgMs">—</div>
+                    <div class="sec-stat-label">Avg Response (ms)</div>
+                </div>
+            </div>
+
+            <!-- Request Log -->
+            <div class="security-section">
+                <h3><span class="material-icons">list_alt</span> Request Log</h3>
+                <div class="table-toolbar">
+                    <div class="search-box">
+                        <span class="material-icons">search</span>
+                        <input type="text" id="reqLogSearch" placeholder="Filter by path...">
+                    </div>
+                    <div class="filter-chips" id="methodChips">
+                        <button class="chip active" data-method="all">All</button>
+                        <button class="chip" data-method="GET">GET</button>
+                        <button class="chip" data-method="POST">POST</button>
+                        <button class="chip" data-method="PUT">PUT</button>
+                        <button class="chip" data-method="DELETE">DELETE</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="request-log-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Method</th>
+                                <th>Path</th>
+                                <th>Status</th>
+                                <th>User</th>
+                                <th>IP</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requestLogBody">
+                            <tr><td colspan="7" class="loading-cell">Loading request log...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Security Features List -->
+            <div class="security-section">
+                <h3><span class="material-icons">verified_user</span> Security Features Active</h3>
+                <div class="security-features">
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>JWT Authentication (HS256, 24h expiry)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>bcrypt Password Hashing (salt rounds: 12)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Role-Based Access Control (4 roles)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Rate Limiting (10 login/min, 5 register/min, 200 req/min)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Audit Logging Middleware (all API requests)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Security Headers (X-Frame-Options, CSP, HSTS, etc.)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Input Sanitization (XSS prevention, username/email validation)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Document Access Control (role-based upload/delete/view)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>CORS Policy (configurable origin whitelist)</span>
+                    </div>
+                    <div class="sec-feature enabled">
+                        <span class="material-icons">check_circle</span>
+                        <span>Two-Factor Authentication (Authenticator, SMS, Hardware Key, Admin Code)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2FA Management Tab -->
+        <div class="tab-content hidden" id="tabTwofa">
+            <!-- 2FA Stats Row -->
+            <div class="security-stats-row">
+                <div class="sec-stat">
+                    <span class="material-icons">people</span>
+                    <div class="sec-stat-value" id="twofaTotalUsers">—</div>
+                    <div class="sec-stat-label">Total Users</div>
+                </div>
+                <div class="sec-stat" style="border-left-color:#059669">
+                    <span class="material-icons">verified_user</span>
+                    <div class="sec-stat-value" id="twofaEnabled">—</div>
+                    <div class="sec-stat-label">2FA Enabled</div>
+                </div>
+                <div class="sec-stat warning">
+                    <span class="material-icons">warning</span>
+                    <div class="sec-stat-value" id="twofaDisabled">—</div>
+                    <div class="sec-stat-label">2FA Disabled</div>
+                </div>
+                <div class="sec-stat">
+                    <span class="material-icons">trending_up</span>
+                    <div class="sec-stat-value" id="twofaAdoption">—</div>
+                    <div class="sec-stat-label">Adoption Rate</div>
+                </div>
+                <div class="sec-stat">
+                    <span class="material-icons">pin</span>
+                    <div class="sec-stat-value" id="twofaChallenges24h">—</div>
+                    <div class="sec-stat-label">Challenges (24h)</div>
+                </div>
+            </div>
+
+            <!-- Method Breakdown -->
+            <div class="security-section">
+                <h3><span class="material-icons">donut_small</span> Method Breakdown</h3>
+                <div class="twofa-methods-grid" id="twofaMethodBreakdown">
+                    <div class="twofa-method-card">
+                        <div class="twofa-method-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+                            <span class="material-icons">phonelink_lock</span>
+                        </div>
+                        <div class="twofa-method-info">
+                            <div class="twofa-method-name">Authenticator App</div>
+                            <div class="twofa-method-count" id="twofaCountAuth">0 users</div>
+                        </div>
+                    </div>
+                    <div class="twofa-method-card">
+                        <div class="twofa-method-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">
+                            <span class="material-icons">sms</span>
+                        </div>
+                        <div class="twofa-method-info">
+                            <div class="twofa-method-name">OTP to Phone</div>
+                            <div class="twofa-method-count" id="twofaCountSms">0 users</div>
+                        </div>
+                    </div>
+                    <div class="twofa-method-card">
+                        <div class="twofa-method-icon" style="background:linear-gradient(135deg,#f093fb,#f5576c)">
+                            <span class="material-icons">usb</span>
+                        </div>
+                        <div class="twofa-method-info">
+                            <div class="twofa-method-name">Hardware Key</div>
+                            <div class="twofa-method-count" id="twofaCountHw">0 users</div>
+                        </div>
+                    </div>
+                    <div class="twofa-method-card">
+                        <div class="twofa-method-icon" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">
+                            <span class="material-icons">support_agent</span>
+                        </div>
+                        <div class="twofa-method-info">
+                            <div class="twofa-method-name">Contact Admin</div>
+                            <div class="twofa-method-count" id="twofaCountAdmin">0 users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 2FA Status Table -->
+            <div class="security-section">
+                <h3><span class="material-icons">manage_accounts</span> User 2FA Status</h3>
+                <div class="table-container">
+                    <table class="request-log-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role</th>
+                                <th>2FA Status</th>
+                                <th>Method</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="twofaUsersBody">
+                            <tr><td colspan="5" class="loading-cell">Loading 2FA status...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audit Log Tab -->
+        <div class="tab-content hidden" id="tabAudit">
+            <div class="table-container">
+                <table class="audit-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User ID</th>
+                            <th>Action</th>
+                            <th>Detail</th>
+                            <th>IP Address</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auditTableBody">
+                        <tr><td colspan="5" class="loading-cell">Loading audit log...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- ── Edit User Modal ── -->
+    <div class="modal-overlay hidden" id="editUserModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Edit User</h2>
+                <button class="modal-close" id="modalClose">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <form id="editUserForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="formUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="formName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="formEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="formPassword" placeholder="Leave blank to keep current">
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select id="formRole">
+                            <option value="trainee">Trainee</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" id="formDepartment">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="modalCancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="modalSave">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth-helper.js?v=2"></script>
+    <script src="user-menu.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

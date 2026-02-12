@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist Pro - Course Detail</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">
+                <span class="material-icons">school</span>
+                <span class="logo-text">Edu Assist Pro</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <a href="courses.html" class="nav-link active">
+                <span class="material-icons">menu_book</span> Courses
+            </a>
+            <a href="dashboard.html" class="nav-link">
+                <span class="material-icons">dashboard</span> Dashboard
+            </a>
+            <a href="index.html" class="nav-link">
+                <span class="material-icons">chat</span> AI Assistant
+            </a>
+            <a href="admin.html" class="nav-link admin-nav-link" style="display:none">
+                <span class="material-icons">admin_panel_settings</span> Admin
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <span class="material-icons">dark_mode</span>
+            </button>
+            <div class="user-menu-wrapper">
+                <button class="user-menu" id="userMenuBtn" aria-label="User profile">
+                    <span class="material-icons">account_circle</span>
+                    <span class="user-name" id="userName">User</span>
+                    <span class="material-icons dropdown-arrow">expand_more</span>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <span class="material-icons">dashboard</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="settingsBtn">
+                        <span class="material-icons">settings</span>
+                        <span>Settings</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                        <span class="material-icons">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="courses.html"><span class="material-icons">arrow_back</span> All Courses</a>
+        </div>
+
+        <!-- Course Hero -->
+        <div class="course-hero" id="courseHero">
+            <div class="hero-left">
+                <div class="hero-icon" id="heroIcon">📋</div>
+                <div class="hero-info">
+                    <div class="hero-category" id="heroCategory">Category</div>
+                    <h1 class="hero-title" id="heroTitle">Loading...</h1>
+                    <p class="hero-description" id="heroDescription"></p>
+                    <div class="hero-meta">
+                        <span class="meta-tag"><span class="material-icons">schedule</span><span id="heroDuration">0</span>h</span>
+                        <span class="meta-tag"><span class="material-icons">view_module</span><span id="heroModules">0</span> modules</span>
+                        <span class="meta-tag"><span class="material-icons">signal_cellular_alt</span><span id="heroDifficulty">Beginner</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="progress-ring-container" id="progressRing">
+                    <svg class="progress-ring" width="100" height="100">
+                        <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+                        <circle class="ring-fill" cx="50" cy="50" r="42" id="ringFill"></circle>
+                    </svg>
+                    <div class="ring-text" id="ringText">0%</div>
+                </div>
+                <button class="hero-action-btn" id="heroActionBtn">Enroll Now</button>
+                <a class="hero-assessment-btn hidden" id="heroAssessmentBtn">
+                    <span class="material-icons">quiz</span> Take Assessment
+                </a>
+            </div>
+        </div>
+
+        <!-- Module List -->
+        <div class="module-section">
+            <h2 class="section-title">
+                <span class="material-icons">list_alt</span> Course Modules
+            </h2>
+            <div class="module-list" id="moduleList">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- Module Content Viewer -->
+        <div class="module-viewer hidden" id="moduleViewer">
+            <div class="viewer-header">
+                <h3 id="viewerTitle">Module Title</h3>
+                <button class="viewer-close" id="viewerClose">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="viewer-body" id="viewerBody">
+                <p>Module content goes here...</p>
+            </div>
+            <div class="viewer-actions">
+                <button class="btn-secondary" id="viewerPrev">
+                    <span class="material-icons">arrow_back</span> Previous
+                </button>
+                <button class="btn-primary" id="viewerComplete">
+                    <span class="material-icons">check_circle</span> Mark Complete
+                </button>
+                <button class="btn-secondary" id="viewerNext">
+                    Next <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Ask AI about this course -->
+        <div class="ai-section">
+            <h2 class="section-title">
+                <span class="material-icons">smart_toy</span> Ask AI About This Course
+            </h2>
+            <div class="ai-prompt-box">
+                <input type="text" id="aiQuestion" placeholder="Ask a question about this course content...">
+                <button id="aiAskBtn" class="btn-primary">
+                    <span class="material-icons">send</span>
+                </button>
+            </div>
+            <div class="ai-response hidden" id="aiResponse">
+                <div class="ai-response-text" id="aiResponseText"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="auth-helper.js?v=2"></script>
+    <script src="user-menu.js"></script>
+    <script src="course.js"></script>
+</body>
+</html>

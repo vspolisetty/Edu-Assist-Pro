@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist Pro - Assessment</title>
+    <link rel="stylesheet" href="assessment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">
+                <span class="material-icons">school</span>
+                <span class="logo-text">Edu Assist Pro</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <a href="courses.html" class="nav-link"><span class="material-icons">menu_book</span> Courses</a>
+            <a href="dashboard.html" class="nav-link"><span class="material-icons">dashboard</span> Dashboard</a>
+            <a href="index.html" class="nav-link"><span class="material-icons">chat</span> AI Assistant</a>
+            <a href="admin.html" class="nav-link admin-nav-link" style="display:none"><span class="material-icons">admin_panel_settings</span> Admin</a>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <span class="material-icons">dark_mode</span>
+            </button>
+            <div class="user-menu-wrapper">
+                <button class="user-menu" id="userMenuBtn" aria-label="User profile">
+                    <span class="material-icons">account_circle</span>
+                    <span class="user-name" id="userName">User</span>
+                    <span class="material-icons dropdown-arrow">expand_more</span>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <span class="material-icons">dashboard</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="settingsBtn">
+                        <span class="material-icons">settings</span>
+                        <span>Settings</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                        <span class="material-icons">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Pre-Quiz: Start Screen -->
+        <div class="quiz-start" id="quizStart">
+            <div class="start-card">
+                <div class="start-icon" id="startIcon">📋</div>
+                <h1 id="startTitle">Loading Assessment...</h1>
+                <p id="startDesc" class="start-description"></p>
+                <div class="start-meta">
+                    <div class="meta-item"><span class="material-icons">help_outline</span><span id="startQuestionCount">0</span> Questions</div>
+                    <div class="meta-item"><span class="material-icons">schedule</span><span id="startTimeLimit">15</span> Minutes</div>
+                    <div class="meta-item"><span class="material-icons">grade</span>Passing: <span id="startPassingScore">70</span>%</div>
+                </div>
+                <button class="btn-start" id="btnStartQuiz">
+                    <span class="material-icons">play_arrow</span> Start Assessment
+                </button>
+                <a href="#" id="backToCourse" class="back-link">
+                    <span class="material-icons">arrow_back</span> Back to Course
+                </a>
+            </div>
+        </div>
+
+        <!-- Quiz In Progress -->
+        <div class="quiz-active hidden" id="quizActive">
+            <!-- Timer & Progress Bar -->
+            <div class="quiz-toolbar">
+                <div class="quiz-progress-info">
+                    <span>Question <strong id="currentQ">1</strong> of <strong id="totalQ">10</strong></span>
+                </div>
+                <div class="quiz-timer" id="quizTimer">
+                    <span class="material-icons">timer</span>
+                    <span id="timerDisplay">15:00</span>
+                </div>
+            </div>
+            <div class="progress-track-bar">
+                <div class="progress-fill-bar" id="progressFill"></div>
+            </div>
+
+            <!-- Question Navigator -->
+            <div class="question-nav" id="questionNav">
+                <!-- Buttons generated by JS -->
+            </div>
+
+            <!-- Question Card -->
+            <div class="question-card" id="questionCard">
+                <div class="question-type-badge" id="questionTypeBadge">Multiple Choice</div>
+                <h2 class="question-text" id="questionText">Loading...</h2>
+                <div class="options-list" id="optionsList">
+                    <!-- Options generated by JS -->
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="quiz-actions">
+                <button class="btn-secondary" id="btnPrev"><span class="material-icons">arrow_back</span> Previous</button>
+                <button class="btn-secondary" id="btnNext">Next <span class="material-icons">arrow_forward</span></button>
+                <button class="btn-primary btn-submit hidden" id="btnSubmit"><span class="material-icons">check_circle</span> Submit Assessment</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="quiz-results hidden" id="quizResults">
+            <div class="results-card">
+                <div class="results-header" id="resultsHeader">
+                    <div class="results-icon" id="resultsIcon">🎉</div>
+                    <h1 id="resultsTitle">Assessment Complete</h1>
+                    <p id="resultsSubtitle"></p>
+                </div>
+
+                <div class="score-display">
+                    <div class="score-ring-container">
+                        <svg class="score-ring" width="140" height="140">
+                            <circle class="score-ring-bg" cx="70" cy="70" r="58"></circle>
+                            <circle class="score-ring-fill" cx="70" cy="70" r="58" id="scoreRingFill"></circle>
+                        </svg>
+                        <div class="score-text" id="scoreText">0%</div>
+                    </div>
+                    <div class="score-details">
+                        <div class="score-stat"><span class="label">Score</span><span class="value" id="scoreValue">0/0</span></div>
+                        <div class="score-stat"><span class="label">Passing</span><span class="value" id="passingValue">70%</span></div>
+                        <div class="score-stat"><span class="label">Time</span><span class="value" id="timeValue">0:00</span></div>
+                        <div class="score-stat"><span class="label">Status</span><span class="value" id="statusValue">—</span></div>
+                    </div>
+                </div>
+
+                <!-- Certificate Banner -->
+                <div class="certificate-banner hidden" id="certificateBanner">
+                    <span class="material-icons">workspace_premium</span>
+                    <div>
+                        <h3>Certificate Earned!</h3>
+                        <p id="certCourseTitle"></p>
+                    </div>
+                    <button class="btn-cert" id="btnViewCert"><span class="material-icons">visibility</span> View</button>
+                </div>
+
+                <!-- Answer Review -->
+                <div class="review-section">
+                    <h3><span class="material-icons">fact_check</span> Answer Review</h3>
+                    <div class="review-list" id="reviewList">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-secondary" id="btnRetake"><span class="material-icons">replay</span> Retake</button>
+                    <a href="courses.html" class="btn-primary"><span class="material-icons">menu_book</span> Back to Courses</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Modal -->
+        <div class="modal-overlay hidden" id="certModal">
+            <div class="cert-card" id="certCard">
+                <button class="modal-close" id="closeCertModal"><span class="material-icons">close</span></button>
+                <div class="cert-header">
+                    <span class="material-icons cert-seal">workspace_premium</span>
+                    <h2>Certificate of Completion</h2>
+                    <div class="cert-divider"></div>
+                </div>
+                <div class="cert-body">
+                    <p class="cert-label">This certifies that</p>
+                    <h1 class="cert-name" id="certUserName">User</h1>
+                    <p class="cert-label">has successfully completed</p>
+                    <h2 class="cert-course" id="certCourseName">Course</h2>
+                    <div class="cert-meta">
+                        <span><span class="material-icons">grade</span> Score: <strong id="certScore">0%</strong></span>
+                        <span><span class="material-icons">calendar_today</span> Date: <strong id="certDate">—</strong></span>
+                    </div>
+                </div>
+                <div class="cert-footer">
+                    <p>Edu Assist Pro — Corporate Training Platform</p>
+                    <p class="cert-id" id="certId">Certificate ID: —</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="auth-helper.js?v=2"></script>
+    <script src="user-menu.js"></script>
+    <script src="assessment.js"></script>
+</body>
+</html>

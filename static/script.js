@@ -1,8 +1,8 @@
 class EduAssist {
     constructor() {
         this.checkAuthentication();
-        this.currentSubject = 'Mathematics';
-        this.currentTopic = 'Algebra';
+        this.currentSubject = 'Compliance Training';
+        this.currentTopic = 'Company Policies';
         this.subjects = [];
         this.questionsData = {};
         this.topicsData = {};
@@ -20,10 +20,17 @@ class EduAssist {
     }
     
     checkAuthentication() {
-        const userData = localStorage.getItem('currentUser');
-        if (!userData) {
+        if (window.AUTH && !AUTH.isAuthenticated()) {
+            window.location.href = 'login.html';
             return;
         }
+    }
+
+    setUserName() {
+        const u = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        const name = u.name || u.username || u.user_id || 'User';
+        const el = document.getElementById('userName');
+        if (el) el.textContent = name;
     }
     
     async init() {
@@ -32,6 +39,7 @@ class EduAssist {
         await this.loadTopics();
         this.setupEventListeners();
         this.setupTheme();
+        this.setUserName();
         this.renderSubjects();
         this.renderQuestions();
         this.renderTopics();
@@ -48,28 +56,28 @@ class EduAssist {
             // Fallback data
             this.subjects = [
                 {
-                    id: 'math',
-                    name: 'Mathematics',
-                    icon: '📐',
-                    topics: ['Algebra', 'Geometry', 'Calculus', 'Statistics']
+                    id: 'compliance',
+                    name: 'Compliance Training',
+                    icon: '�',
+                    topics: ['Company Policies', 'Data Privacy', 'Workplace Safety', 'Ethics & Conduct']
                 },
                 {
-                    id: 'science',
-                    name: 'Science',
-                    icon: '🧪',
-                    topics: ['Physics', 'Chemistry', 'Biology', 'Earth Science']
+                    id: 'security',
+                    name: 'Security Awareness',
+                    icon: '🔒',
+                    topics: ['Cybersecurity Basics', 'Phishing Prevention', 'Password Management', 'Incident Reporting']
                 },
                 {
-                    id: 'english',
-                    name: 'English',
-                    icon: '📚',
-                    topics: ['Grammar', 'Literature', 'Writing', 'Reading Comprehension']
+                    id: 'leadership',
+                    name: 'Leadership Development',
+                    icon: '�',
+                    topics: ['Team Management', 'Communication Skills', 'Conflict Resolution', 'Performance Reviews']
                 },
                 {
-                    id: 'history',
-                    name: 'History',
-                    icon: '🏛️',
-                    topics: ['World History', 'American History', 'Ancient Civilizations', 'Modern History']
+                    id: 'technical',
+                    name: 'Technical Skills',
+                    icon: '⚙️',
+                    topics: ['Tools & Systems', 'Process Documentation', 'Quality Standards', 'Best Practices']
                 }
             ];
         }
@@ -463,13 +471,15 @@ class EduAssist {
             };
             
             // Call the RAG backend
-            const response = await fetch('http://localhost:3000/api/chat', {
+            const response = await (window.AUTH ? AUTH.fetch('/api/chat', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(requestBody)
-            });
+            }) : fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestBody)
+            }));
             
             this.hideTypingIndicator();
             

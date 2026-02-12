@@ -3,195 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edu Assist - Dashboard</title>
+    <title>Edu Assist Pro - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="dashboard.css">
 </head>
-<body class="light-theme">
+<body>
     <!-- Top Navigation -->
-    <header class="dashboard-nav">
+    <nav class="top-nav">
         <div class="nav-left">
-            <div class="logo">
-                <img src="images/voxtech_logo.png" alt="VoxTech Logo" class="logo-image">
-            </div>
+            <a href="dashboard.html" class="nav-logo">
+                <span class="material-icons">school</span>
+                <span class="logo-text">Edu Assist Pro</span>
+            </a>
         </div>
-        
         <div class="nav-center">
-            <h2 class="page-title">Dashboard</h2>
+            <a href="courses.html" class="nav-link">
+                <span class="material-icons">menu_book</span> Courses
+            </a>
+            <a href="dashboard.html" class="nav-link active">
+                <span class="material-icons">dashboard</span> Dashboard
+            </a>
+            <a href="index.html" class="nav-link">
+                <span class="material-icons">chat</span> AI Assistant
+            </a>
+            <a href="admin.html" class="nav-link admin-nav-link" style="display:none">
+                <span class="material-icons">admin_panel_settings</span> Admin
+            </a>
         </div>
-        
         <div class="nav-right">
-            <button class="nav-button theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span class="material-icons">light_mode</span>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <span class="material-icons">dark_mode</span>
             </button>
-            
-            <div class="user-menu" id="user-menu">
-                <button class="user-button" id="user-button">
+            <div class="user-menu-wrapper">
+                <button class="user-menu" id="userMenuBtn" aria-label="User profile">
                     <span class="material-icons">account_circle</span>
-                    <span class="user-name" id="user-name">User</span>
-                    <span class="material-icons dropdown-icon">expand_more</span>
+                    <span class="user-name" id="userName">User</span>
+                    <span class="material-icons dropdown-arrow">expand_more</span>
                 </button>
-                
-                <div class="user-dropdown" id="user-dropdown">
-                    <a href="#" class="dropdown-item">
-                        <span class="material-icons">person</span>
-                        Profile
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <span class="material-icons">dashboard</span>
+                        <span>Dashboard</span>
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="settingsBtn">
                         <span class="material-icons">settings</span>
-                        Settings
+                        <span>Settings</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item" id="logout-btn">
+                    <a href="#" class="dropdown-item logout-item" id="logoutBtn">
                         <span class="material-icons">logout</span>
-                        Logout
+                        <span>Logout</span>
                     </a>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <div class="dashboard-container">
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <div class="welcome-card">
-                <div class="welcome-content">
-                    <h2>Welcome back, <span id="welcome-username">User</span>! 👋</h2>
-                    <p>Ready to continue your learning journey? Let's pick up where you left off.</p>
-                    <div class="quick-actions">
-                        <button class="action-btn primary" onclick="window.location.href='index.html'">
-                            <span class="material-icons">chat</span>
-                            Start Learning
-                        </button>
-                        <button class="action-btn secondary" id="view-progress-btn">
-                            <span class="material-icons">analytics</span>
-                            View Progress
-                        </button>
-                    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <div class="welcome-text">
+                <h1>Welcome back, <span id="welcomeName">User</span></h1>
+                <p>Track your training progress, quiz results, and certifications.</p>
+            </div>
+            <div class="welcome-actions">
+                <a href="courses.html" class="btn-primary"><span class="material-icons">menu_book</span> Browse Courses</a>
+                <a href="index.html" class="btn-secondary"><span class="material-icons">chat</span> AI Assistant</a>
+            </div>
+        </section>
+
+        <!-- Stats Row -->
+        <section class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon-wrap si-primary"><span class="material-icons">menu_book</span></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="statCourses">0</span>
+                    <span class="stat-label">Enrolled Courses</span>
                 </div>
-                <div class="welcome-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" id="total-sessions">12</span>
-                        <span class="stat-label">Study Sessions</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="total-topics">8</span>
-                        <span class="stat-label">Topics Learned</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="current-streak">5</span>
-                        <span class="stat-label">Day Streak</span>
-                    </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrap si-secondary"><span class="material-icons">quiz</span></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="statQuizzes">0</span>
+                    <span class="stat-label">Quizzes Taken</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrap si-success"><span class="material-icons">workspace_premium</span></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="statCerts">0</span>
+                    <span class="stat-label">Certificates</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrap si-warning"><span class="material-icons">trending_up</span></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="statAvgScore">—</span>
+                    <span class="stat-label">Avg. Score</span>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content Grid -->
+        <!-- Two-Column Grid -->
         <div class="dashboard-grid">
-            <!-- Bookmarked Topics -->
-            <section class="dashboard-card bookmarks-card">
+
+            <!-- My Courses -->
+            <section class="card">
                 <div class="card-header">
-                    <h3>
-                        <span class="material-icons">bookmark</span>
-                        Bookmarked Topics
-                    </h3>
-                    <button class="header-action" id="clear-bookmarks">
-                        <span class="material-icons">clear_all</span>
-                    </button>
+                    <h3><span class="material-icons">school</span> My Courses</h3>
+                    <a href="courses.html" class="card-action">View All</a>
                 </div>
-                <div class="card-content">
-                    <div class="bookmarks-list" id="bookmarks-list">
-                        <!-- Bookmarks will be populated by JavaScript -->
+                <div class="card-body" id="myCoursesList">
+                    <div class="empty-state">
+                        <span class="material-icons">menu_book</span>
+                        <p>No courses enrolled yet</p>
+                        <a href="courses.html" class="btn-sm">Browse Courses</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Subject Progress -->
-            <section class="dashboard-card progress-card">
+            <!-- Quiz Results -->
+            <section class="card">
                 <div class="card-header">
-                    <h3>
-                        <span class="material-icons">trending_up</span>
-                        Subject Progress
-                    </h3>
-                    <div class="progress-filter">
-                        <select id="subject-filter">
-                            <option value="all">All Subjects</option>
-                            <option value="mathematics">Mathematics</option>
-                            <option value="science">Science</option>
-                            <option value="english">English</option>
-                            <option value="history">History</option>
-                        </select>
-                    </div>
+                    <h3><span class="material-icons">fact_check</span> Recent Quiz Results</h3>
                 </div>
-                <div class="card-content">
-                    <div class="progress-visualization" id="progress-visualization">
-                        <!-- Progress visualization will be populated by JavaScript -->
+                <div class="card-body" id="quizResultsList">
+                    <div class="empty-state">
+                        <span class="material-icons">quiz</span>
+                        <p>No quizzes taken yet</p>
+                        <p class="empty-hint">Enroll in a course and take an assessment</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Recent Activity -->
-            <section class="dashboard-card activity-card">
+            <!-- Certificates -->
+            <section class="card card-full">
                 <div class="card-header">
-                    <h3>
-                        <span class="material-icons">history</span>
-                        Recent Activity
-                    </h3>
+                    <h3><span class="material-icons">workspace_premium</span> My Certificates</h3>
                 </div>
-                <div class="card-content">
-                    <div class="activity-list" id="activity-list">
-                        <!-- Recent activity will be populated by JavaScript -->
+                <div class="card-body" id="certsList">
+                    <div class="empty-state">
+                        <span class="material-icons">emoji_events</span>
+                        <p>No certificates earned yet</p>
+                        <p class="empty-hint">Pass a course assessment to earn a certificate</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Quick Stats -->
-            <section class="dashboard-card stats-card">
-                <div class="card-header">
-                    <h3>
-                        <span class="material-icons">insights</span>
-                        Learning Insights
-                    </h3>
+        </div>
+    </main>
+
+    <!-- Certificate Modal -->
+    <div class="modal-overlay hidden" id="certModal">
+        <div class="cert-card">
+            <button class="modal-close" id="closeCertModal"><span class="material-icons">close</span></button>
+            <div class="cert-header">
+                <span class="material-icons cert-seal">workspace_premium</span>
+                <h2>Certificate of Completion</h2>
+                <div class="cert-divider"></div>
+            </div>
+            <div class="cert-body">
+                <p class="cert-label">This certifies that</p>
+                <h1 class="cert-name" id="certUserName">User</h1>
+                <p class="cert-label">has successfully completed</p>
+                <h2 class="cert-course" id="certCourseName">Course</h2>
+                <div class="cert-meta">
+                    <span><span class="material-icons">grade</span> Score: <strong id="certScore">0%</strong></span>
+                    <span><span class="material-icons">calendar_today</span> Date: <strong id="certDate">—</strong></span>
                 </div>
-                <div class="card-content">
-                    <div class="stats-grid">
-                        <div class="stat-box">
-                            <div class="stat-icon">📚</div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="questions-asked">0</span>
-                                <span class="stat-desc">Questions Asked</span>
-                            </div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-icon">⏱️</div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="study-time">0h</span>
-                                <span class="stat-desc">Today's Study Time</span>
-                            </div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-icon">🎯</div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="completion-rate">0%</span>
-                                <span class="stat-desc">Completion Rate</span>
-                            </div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-icon">🏆</div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="achievements">0</span>
-                                <span class="stat-desc">Achievements</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
+            <div class="cert-footer">
+                <p>Edu Assist Pro — Corporate Training Platform</p>
+                <p class="cert-id" id="certIdText">Certificate ID: —</p>
+            </div>
         </div>
     </div>
 
+    <script src="auth-helper.js?v=2"></script>
+    <script src="user-menu.js"></script>
     <script src="dashboard.js"></script>
 </body>
 </html>

@@ -1,118 +1,115 @@
 {
-  "mathematics": {
-    "Algebra": [
-      "Linear Equations and Inequalities",
-      "Quadratic Functions and Equations", 
-      "Polynomial Operations and Factoring",
-      "Rational Expressions and Functions",
-      "Exponential and Logarithmic Functions"
+  "compliance": {
+    "Company Policies": [
+      "Employee Code of Conduct Overview",
+      "Attendance and Leave Management",
+      "Expense Reporting and Reimbursement",
+      "Intellectual Property and Confidentiality",
+      "Social Media and Communications Policy"
     ],
-    "Geometry": [
-      "Properties of Triangles and Quadrilaterals",
-      "Circle Theorems and Arc Measurements",
-      "Area and Volume Calculations",
-      "Coordinate Geometry and Transformations",
-      "Trigonometric Ratios and Applications"
+    "Data Privacy & GDPR": [
+      "Understanding GDPR Principles",
+      "Data Processing and Consent",
+      "Data Subject Rights and Requests",
+      "Cross-Border Data Transfers",
+      "Data Breach Notification Procedures"
     ],
-    "Calculus": [
-      "Limits and Continuity",
-      "Derivatives and Applications",
-      "Integration Techniques",
-      "Related Rates and Optimization",
-      "Fundamental Theorem of Calculus"
+    "Workplace Safety": [
+      "Emergency Procedures and Evacuation",
+      "Hazard Identification and Reporting",
+      "Personal Protective Equipment (PPE)",
+      "Ergonomics and Workstation Setup",
+      "Incident Investigation Process"
     ],
-    "Statistics": [
-      "Data Collection and Sampling Methods",
-      "Descriptive Statistics and Measures",
-      "Probability Distributions",
-      "Hypothesis Testing and Confidence Intervals",
-      "Regression Analysis and Correlation"
+    "Anti-Harassment": [
+      "Types of Workplace Harassment",
+      "Reporting Channels and Procedures",
+      "Investigation and Resolution Process",
+      "Bystander Intervention Training",
+      "Creating an Inclusive Workplace"
     ],
-    "Trigonometry": [
-      "Unit Circle and Radian Measure",
-      "Trigonometric Functions and Graphs",
-      "Trigonometric Identities and Equations",
-      "Law of Sines and Law of Cosines",
-      "Inverse Trigonometric Functions"
-    ],
-    "Linear Algebra": [
-      "Matrices and Matrix Operations",
-      "Systems of Linear Equations",
-      "Vector Spaces and Linear Independence",
-      "Eigenvalues and Eigenvectors",
-      "Linear Transformations"
-    ],
-    "Discrete Math": [
-      "Set Theory and Logic",
-      "Combinatorics and Counting Principles",
-      "Graph Theory and Trees",
-      "Recurrence Relations",
-      "Mathematical Induction and Proofs"
-    ],
-    "Number Theory": [
-      "Prime Numbers and Factorization",
-      "Greatest Common Divisor and LCM",
-      "Modular Arithmetic",
-      "Diophantine Equations",
-      "Cryptographic Applications"
+    "Ethics & Conduct": [
+      "Business Ethics Framework",
+      "Conflict of Interest Management",
+      "Anti-Bribery and Corruption",
+      "Fair Competition Practices",
+      "Whistleblower Protection"
     ]
   },
-  "science": {
-    "Physics": [
-      "Kinematics and Motion in One Dimension",
-      "Forces and Newton's Laws of Motion",
-      "Energy, Work, and Power",
-      "Momentum and Collisions",
-      "Waves, Sound, and Light"
+  "security": {
+    "Cybersecurity Basics": [
+      "Understanding Threat Landscape",
+      "Device Security Best Practices",
+      "Network Security Fundamentals",
+      "Mobile Device Management",
+      "Cloud Security Awareness"
     ],
-    "Chemistry": [
-      "Atomic Structure and Periodic Trends",
-      "Chemical Bonding and Molecular Geometry",
-      "Stoichiometry and Chemical Reactions",
-      "Acids, Bases, and pH",
-      "Thermodynamics and Kinetics"
+    "Phishing Prevention": [
+      "Email Phishing Identification",
+      "Spear Phishing and Whaling",
+      "URL and Link Verification",
+      "Social Engineering Red Flags",
+      "Reporting Suspicious Communications"
     ],
-    "Biology": [
-      "Cell Structure and Function",
-      "DNA, RNA, and Protein Synthesis",
-      "Photosynthesis and Cellular Respiration",
-      "Evolution and Natural Selection",
-      "Ecology and Environmental Systems"
+    "Password Management": [
+      "Strong Password Creation",
+      "Multi-Factor Authentication (MFA)",
+      "Password Manager Usage",
+      "Account Recovery Procedures",
+      "Privileged Access Management"
     ],
-    "Earth Science": [
-      "Plate Tectonics and Continental Drift",
-      "Rock Cycle and Mineral Formation",
-      "Weather Patterns and Climate Systems",
-      "Water Cycle and Ocean Currents",
-      "Geological Time and Fossil Record"
+    "Incident Reporting": [
+      "Security Incident Classification",
+      "Reporting Procedures and Timelines",
+      "Evidence Preservation",
+      "Post-Incident Review Process",
+      "Lessons Learned Documentation"
+    ]
+  },
+  "leadership": {
+    "Team Management": [
+      "Setting SMART Goals for Teams",
+      "Effective Delegation Strategies",
+      "Remote Team Leadership",
+      "Building High-Performance Teams",
+      "Succession Planning"
     ],
-    "Astronomy": [
-      "Solar System Formation and Planets",
-      "Stellar Evolution and Life Cycles",
-      "Galaxies and Large-Scale Structure",
-      "Cosmology and the Big Bang Theory",
-      "Exoplanets and Search for Life"
+    "Communication Skills": [
+      "Executive Communication",
+      "Presentation Skills Development",
+      "Written Communication Standards",
+      "Cross-Cultural Communication",
+      "Stakeholder Management"
     ],
-    "Environmental Science": [
-      "Climate Change and Global Warming",
-      "Renewable and Non-renewable Resources",
-      "Pollution and Environmental Impact",
-      "Biodiversity and Conservation",
-      "Sustainable Development Practices"
+    "Conflict Resolution": [
+      "Mediation Techniques",
+      "Difficult Conversations Framework",
+      "Interest-Based Problem Solving",
+      "De-escalation Strategies",
+      "Building Consensus"
+    ]
+  },
+  "technical": {
+    "Tools & Systems": [
+      "Enterprise Software Overview",
+      "CRM and ERP Systems",
+      "Collaboration Platform Guide",
+      "Version Control and Documentation",
+      "System Access and Permissions"
     ],
-    "Anatomy": [
-      "Cardiovascular System and Blood Circulation",
-      "Nervous System and Brain Function",
-      "Respiratory System and Gas Exchange",
-      "Digestive System and Metabolism",
-      "Musculoskeletal System and Movement"
+    "Process Documentation": [
+      "Standard Operating Procedures (SOPs)",
+      "Process Mapping and Flowcharts",
+      "Documentation Templates",
+      "Review and Approval Workflows",
+      "Knowledge Base Management"
     ],
-    "Genetics": [
-      "Mendelian Inheritance Patterns",
-      "Chromosomes and Genetic Mapping",
-      "Gene Expression and Regulation",
-      "Genetic Mutations and Disorders",
-      "Population Genetics and Evolution"
+    "Quality Standards": [
+      "Quality Management Framework",
+      "ISO Standards Overview",
+      "Continuous Improvement (Kaizen)",
+      "Root Cause Analysis Methods",
+      "Quality Metrics and KPIs"
     ]
   }
 }

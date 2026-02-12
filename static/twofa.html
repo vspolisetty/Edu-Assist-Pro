@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist Pro - Two-Factor Authentication</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="twofa.css">
+</head>
+<body class="light-theme">
+    <div class="login-container">
+        <div class="login-card twofa-card">
+            <!-- Step 1: Method Selection -->
+            <div id="stepMethodSelect" class="twofa-step">
+                <div class="login-header">
+                    <div class="logo">
+                        <span class="material-icons" style="font-size:40px;color:var(--primary-color);">verified_user</span>
+                        <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-color);margin-top:8px;">Two-Factor Authentication</h2>
+                    </div>
+                    <p class="subtitle">Choose your verification method</p>
+                    <p class="twofa-user-info">Signing in as <strong id="twofaUsername">—</strong></p>
+                </div>
+
+                <div class="method-grid" id="methodGrid">
+                    <!-- Methods will be injected by JS -->
+                </div>
+
+                <div class="twofa-footer">
+                    <a href="login.html" class="back-to-login">
+                        <span class="material-icons">arrow_back</span> Back to Login
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 2: Code Entry -->
+            <div id="stepCodeEntry" class="twofa-step hidden">
+                <div class="login-header">
+                    <div class="logo">
+                        <span class="material-icons method-icon-large" id="selectedMethodIcon" style="font-size:48px;color:var(--primary-color);">phonelink_lock</span>
+                        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-color);margin-top:8px;" id="selectedMethodLabel">Enter Verification Code</h2>
+                    </div>
+                    <p class="twofa-instructions" id="twofaInstructions">Open your authenticator app and enter the 6-digit code.</p>
+                </div>
+
+                <div class="demo-hint" id="demoHint">
+                    <span class="material-icons">info</span>
+                    <span id="demoHintText">For demo purposes, the code is 123456</span>
+                </div>
+
+                <form id="codeForm" class="login-form">
+                    <div class="code-input-group">
+                        <input type="text" id="digit1" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" autofocus>
+                        <input type="text" id="digit2" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input type="text" id="digit3" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <span class="code-separator">–</span>
+                        <input type="text" id="digit4" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input type="text" id="digit5" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input type="text" id="digit6" class="code-digit" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    </div>
+
+                    <div class="code-timer" id="codeTimer">
+                        <span class="material-icons">timer</span>
+                        Code expires in <strong id="timerValue">5:00</strong>
+                    </div>
+
+                    <button type="submit" class="login-btn verify-btn ripple" id="verifyBtn">
+                        <span class="btn-text">Verify Code</span>
+                        <span class="material-icons btn-icon">check_circle</span>
+                    </button>
+
+                    <div class="twofa-actions">
+                        <button type="button" class="text-btn" id="resendBtn">
+                            <span class="material-icons">refresh</span> Resend Code
+                        </button>
+                        <button type="button" class="text-btn" id="changeMethodBtn">
+                            <span class="material-icons">swap_horiz</span> Change Method
+                        </button>
+                    </div>
+                </form>
+
+                <div class="twofa-footer">
+                    <a href="login.html" class="back-to-login">
+                        <span class="material-icons">arrow_back</span> Back to Login
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div id="stepSuccess" class="twofa-step hidden">
+                <div class="success-animation">
+                    <div class="success-circle">
+                        <span class="material-icons">check</span>
+                    </div>
+                    <h2>Verified!</h2>
+                    <p>Redirecting to your dashboard...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="theme-toggle-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="material-icons">light_mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background -->
+    <div class="background-animation">
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+        <div class="bg-shape bg-shape-3"></div>
+    </div>
+
+    <script src="twofa.js"></script>
+</body>
+</html>

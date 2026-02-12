@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Assist Pro - Course Catalog</title>
+    <link rel="stylesheet" href="courses.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">
+                <span class="material-icons">school</span>
+                <span class="logo-text">Edu Assist Pro</span>
+            </a>
+        </div>
+        <div class="nav-center">
+            <a href="courses.html" class="nav-link active">
+                <span class="material-icons">menu_book</span> Courses
+            </a>
+            <a href="dashboard.html" class="nav-link">
+                <span class="material-icons">dashboard</span> Dashboard
+            </a>
+            <a href="index.html" class="nav-link">
+                <span class="material-icons">chat</span> AI Assistant
+            </a>
+            <a href="admin.html" class="nav-link admin-nav-link" style="display:none">
+                <span class="material-icons">admin_panel_settings</span> Admin
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <span class="material-icons">dark_mode</span>
+            </button>
+            <div class="user-menu-wrapper">
+                <button class="user-menu" id="userMenuBtn" aria-label="User profile">
+                    <span class="material-icons">account_circle</span>
+                    <span class="user-name" id="userName">User</span>
+                    <span class="material-icons dropdown-arrow">expand_more</span>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <span class="material-icons">dashboard</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="settingsBtn">
+                        <span class="material-icons">settings</span>
+                        <span>Settings</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                        <span class="material-icons">logout</span>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <h1>Course Catalog</h1>
+                <p>Browse and enroll in corporate training courses to build your skills and stay compliant.</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-pill">
+                    <span class="material-icons">menu_book</span>
+                    <span id="totalCourses">0</span> Courses
+                </div>
+                <div class="stat-pill">
+                    <span class="material-icons">assignment_turned_in</span>
+                    <span id="enrolledCount">0</span> Enrolled
+                </div>
+                <div class="stat-pill">
+                    <span class="material-icons">verified</span>
+                    <span id="completedCount">0</span> Completed
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="filter-bar">
+            <div class="search-box">
+                <span class="material-icons">search</span>
+                <input type="text" id="searchInput" placeholder="Search courses...">
+            </div>
+            <div class="filter-chips">
+                <button class="chip active" data-filter="all">All</button>
+                <button class="chip" data-filter="mandatory">
+                    <span class="material-icons" style="font-size:14px">priority_high</span> Mandatory
+                </button>
+                <button class="chip" data-filter="Compliance">Compliance</button>
+                <button class="chip" data-filter="Security">Security</button>
+                <button class="chip" data-filter="Leadership">Leadership</button>
+                <button class="chip" data-filter="Technical">Technical</button>
+                <button class="chip" data-filter="HR & Benefits">HR</button>
+                <button class="chip" data-filter="Customer Service">Customer</button>
+            </div>
+        </div>
+
+        <!-- Course Grid -->
+        <div class="course-grid" id="courseGrid">
+            <!-- Cards injected by JS -->
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state hidden" id="emptyState">
+            <span class="material-icons">search_off</span>
+            <h3>No courses found</h3>
+            <p>Try adjusting your search or filters.</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="loading-state" id="loadingState">
+            <div class="spinner"></div>
+            <p>Loading courses...</p>
+        </div>
+    </main>
+
+    <script src="auth-helper.js?v=2"></script>
+    <script src="user-menu.js"></script>
+    <script src="courses.js"></script>
+</body>
+</html>
