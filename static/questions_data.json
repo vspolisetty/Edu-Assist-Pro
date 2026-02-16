@@ -111,5 +111,97 @@
       "How do I report quality issues?",
       "What continuous improvement methods do we use?"
     ]
+  },
+  "hr_policies": {
+    "Employee Handbook": [
+      "Where can I find the full employee handbook?",
+      "What is the company's organizational structure?",
+      "What are the dress code guidelines?",
+      "How do I file a formal grievance?",
+      "What communication channels should I use?"
+    ],
+    "Benefits Overview": [
+      "What health insurance plans are available?",
+      "How does the 401(k) matching work?",
+      "What is the Employee Assistance Program?",
+      "Am I eligible for tuition reimbursement?",
+      "What wellness programs does the company offer?"
+    ],
+    "Time Off Policies": [
+      "How much PTO do I accrue per year?",
+      "What is the process for requesting time off?",
+      "What qualifies for FMLA leave?",
+      "What are the parental leave policies?",
+      "Can I carry over unused PTO?"
+    ]
+  },
+  "customer_service": {
+    "Client Communication": [
+      "What are the standards for client emails?",
+      "How should I prepare for a client video call?",
+      "What active listening techniques should I use?",
+      "How do I manage difficult client expectations?",
+      "What tools are approved for client communication?"
+    ],
+    "Service Standards": [
+      "What are our service level agreements?",
+      "How is customer satisfaction measured?",
+      "What is the target for first contact resolution?",
+      "How do I contribute to service improvement?",
+      "What quality metrics should I track?"
+    ],
+    "Complaint Handling": [
+      "How do I log a customer complaint?",
+      "What is the complaint resolution process?",
+      "When should I escalate a complaint?",
+      "How do I show empathy during resolution?",
+      "How can I turn a complaint into a positive experience?"
+    ]
+  },
+  "operations": {
+    "Standard Procedures": [
+      "Where do I find the standard operating procedures?",
+      "How do I propose a process change?",
+      "What is the change control process?",
+      "How are cross-department handoffs managed?",
+      "What are the emergency response protocols?"
+    ],
+    "Risk Management": [
+      "How do I identify and report risks?",
+      "What risk assessment tools do we use?",
+      "How do I develop a mitigation strategy?",
+      "What is our business continuity plan?",
+      "How does regulatory compliance factor into risk?"
+    ],
+    "Supply Chain": [
+      "How are suppliers evaluated and selected?",
+      "What procurement approval process should I follow?",
+      "How do I track shipment and delivery?",
+      "What demand forecasting tools are available?",
+      "How do we ensure supply chain resilience?"
+    ]
+  },
+  "professional_dev": {
+    "Career Planning": [
+      "How do I create a professional development plan?",
+      "What career paths are available in the company?",
+      "How do I find a mentor?",
+      "What skill assessments are available?",
+      "How do I request a career transition?"
+    ],
+    "Public Speaking": [
+      "How do I overcome fear of public speaking?",
+      "What makes a good presentation structure?",
+      "How do I keep an audience engaged?",
+      "What tools can I use for visual aids?",
+      "How should I handle tough Q&A questions?"
+    ],
+    "Time Management": [
+      "What prioritization frameworks should I use?",
+      "How does the Pomodoro technique work?",
+      "How can I make meetings more efficient?",
+      "What tasks should I delegate vs do myself?",
+      "How do I prevent burnout while staying productive?"
+    ]
   }
 }

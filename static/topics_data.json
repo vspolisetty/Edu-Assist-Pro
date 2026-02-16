@@ -111,5 +111,97 @@
       "Root Cause Analysis Methods",
       "Quality Metrics and KPIs"
     ]
+  },
+  "hr_policies": {
+    "Employee Handbook": [
+      "Organization Structure and Culture",
+      "Dress Code and Workplace Etiquette",
+      "Communication Channels and Hierarchy",
+      "Employee Rights and Responsibilities",
+      "Grievance and Appeals Process"
+    ],
+    "Benefits Overview": [
+      "Health Insurance Plans",
+      "Retirement and 401(k) Options",
+      "Employee Assistance Program (EAP)",
+      "Tuition Reimbursement",
+      "Wellness Programs and Perks"
+    ],
+    "Time Off Policies": [
+      "Vacation and PTO Accrual",
+      "Sick Leave and FMLA",
+      "Parental and Family Leave",
+      "Bereavement Leave",
+      "Sabbatical Programs"
+    ]
+  },
+  "customer_service": {
+    "Client Communication": [
+      "Professional Email Etiquette",
+      "Phone and Video Call Best Practices",
+      "Active Listening Techniques",
+      "Managing Client Expectations",
+      "Multichannel Communication Strategy"
+    ],
+    "Service Standards": [
+      "Service Level Agreements (SLAs)",
+      "Quality Assurance Metrics",
+      "First Contact Resolution",
+      "Customer Satisfaction Surveys",
+      "Continuous Service Improvement"
+    ],
+    "Complaint Handling": [
+      "Complaint Intake and Logging",
+      "Empathy-Driven Resolution",
+      "Escalation Procedures",
+      "Root Cause Analysis for Complaints",
+      "Turning Complaints into Opportunities"
+    ]
+  },
+  "operations": {
+    "Standard Procedures": [
+      "SOP Development and Maintenance",
+      "Process Compliance Audits",
+      "Change Control Procedures",
+      "Emergency Response Protocols",
+      "Cross-Department Coordination"
+    ],
+    "Risk Management": [
+      "Risk Identification Frameworks",
+      "Risk Assessment Matrices",
+      "Mitigation Strategy Development",
+      "Business Continuity Planning",
+      "Regulatory Risk Compliance"
+    ],
+    "Supply Chain": [
+      "Supplier Evaluation and Selection",
+      "Procurement Best Practices",
+      "Logistics and Distribution",
+      "Demand Forecasting",
+      "Supply Chain Resilience"
+    ]
+  },
+  "professional_dev": {
+    "Career Planning": [
+      "Setting Professional Goals",
+      "Creating a Development Plan",
+      "Identifying Skill Gaps",
+      "Mentorship and Sponsorship",
+      "Navigating Career Transitions"
+    ],
+    "Public Speaking": [
+      "Overcoming Stage Fright",
+      "Structuring Presentations",
+      "Engaging Your Audience",
+      "Visual Aid Best Practices",
+      "Handling Q&A Sessions"
+    ],
+    "Time Management": [
+      "Prioritization Frameworks (Eisenhower)",
+      "Pomodoro and Deep Work Techniques",
+      "Meeting Efficiency Strategies",
+      "Delegation and Automation",
+      "Avoiding Burnout"
+    ]
   }
 }

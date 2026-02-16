@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="course.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="nav-center">
-            <a href="courses.html" class="nav-link active">
+            <a href="courses.html" class="nav-link">
                 <span class="material-icons">menu_book</span> Courses
             </a>
             <a href="dashboard.html" class="nav-link">
@@ -62,93 +62,204 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="courses.html"><span class="material-icons">arrow_back</span> All Courses</a>
-        </div>
+    <!-- ─── Course Overview (shown before opening a module) ─── -->
+    <div class="course-overview" id="courseOverview">
+        <div class="overview-container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="courses.html"><span class="material-icons">arrow_back</span> All Courses</a>
+            </div>
 
-        <!-- Course Hero -->
-        <div class="course-hero" id="courseHero">
-            <div class="hero-left">
-                <div class="hero-icon" id="heroIcon">📋</div>
-                <div class="hero-info">
-                    <div class="hero-category" id="heroCategory">Category</div>
-                    <h1 class="hero-title" id="heroTitle">Loading...</h1>
-                    <p class="hero-description" id="heroDescription"></p>
-                    <div class="hero-meta">
-                        <span class="meta-tag"><span class="material-icons">schedule</span><span id="heroDuration">0</span>h</span>
-                        <span class="meta-tag"><span class="material-icons">view_module</span><span id="heroModules">0</span> modules</span>
-                        <span class="meta-tag"><span class="material-icons">signal_cellular_alt</span><span id="heroDifficulty">Beginner</span></span>
+            <!-- Course Hero -->
+            <div class="course-hero" id="courseHero">
+                <div class="hero-left">
+                    <div class="hero-icon" id="heroIcon">📋</div>
+                    <div class="hero-info">
+                        <div class="hero-category" id="heroCategory">Category</div>
+                        <h1 class="hero-title" id="heroTitle">Loading...</h1>
+                        <p class="hero-description" id="heroDescription"></p>
+                        <div class="hero-meta">
+                            <span class="meta-tag"><span class="material-icons">schedule</span><span id="heroDuration">0</span>h</span>
+                            <span class="meta-tag"><span class="material-icons">view_module</span><span id="heroModules">0</span> modules</span>
+                            <span class="meta-tag"><span class="material-icons">signal_cellular_alt</span><span id="heroDifficulty">Beginner</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="progress-ring-container" id="progressRing">
+                        <svg class="progress-ring" width="100" height="100">
+                            <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+                            <circle class="ring-fill" cx="50" cy="50" r="42" id="ringFill"></circle>
+                        </svg>
+                        <div class="ring-text" id="ringText">0%</div>
+                    </div>
+                    <button class="hero-action-btn" id="heroActionBtn">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Course Highlights -->
+            <div class="course-highlights">
+                <div class="highlight-card">
+                    <span class="material-icons">auto_stories</span>
+                    <div>
+                        <strong>Rich Content</strong>
+                        <p>In-depth lessons with examples, tables &amp; real-world scenarios</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <span class="material-icons">smart_toy</span>
+                    <div>
+                        <strong>AI Tutor</strong>
+                        <p>Ask questions and get instant help from AI while learning</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <span class="material-icons">quiz</span>
+                    <div>
+                        <strong>Assessments</strong>
+                        <p>Test your knowledge with quizzes after completing modules</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <span class="material-icons">workspace_premium</span>
+                    <div>
+                        <strong>Certificate</strong>
+                        <p>Earn a certificate upon completing all modules &amp; assessments</p>
                     </div>
                 </div>
             </div>
-            <div class="hero-right">
-                <div class="progress-ring-container" id="progressRing">
-                    <svg class="progress-ring" width="100" height="100">
-                        <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
-                        <circle class="ring-fill" cx="50" cy="50" r="42" id="ringFill"></circle>
-                    </svg>
-                    <div class="ring-text" id="ringText">0%</div>
+
+            <!-- Module List -->
+            <div class="module-section">
+                <h2 class="section-title">
+                    <span class="material-icons">list_alt</span> Course Modules
+                </h2>
+                <div class="module-list" id="moduleList">
+                    <!-- Rendered by JS -->
                 </div>
-                <button class="hero-action-btn" id="heroActionBtn">Enroll Now</button>
-                <a class="hero-assessment-btn hidden" id="heroAssessmentBtn">
+            </div>
+
+            <!-- Assessment CTA -->
+            <div class="assessment-cta hidden" id="assessmentCta">
+                <div class="cta-content">
+                    <span class="material-icons cta-icon">emoji_events</span>
+                    <div>
+                        <h3>Ready to Test Your Knowledge?</h3>
+                        <p>You've completed the modules. Take the assessment to earn your certificate.</p>
+                    </div>
+                </div>
+                <a class="cta-btn" id="heroAssessmentBtn" href="#">
                     <span class="material-icons">quiz</span> Take Assessment
                 </a>
             </div>
         </div>
+    </div>
 
-        <!-- Module List -->
-        <div class="module-section">
-            <h2 class="section-title">
-                <span class="material-icons">list_alt</span> Course Modules
-            </h2>
-            <div class="module-list" id="moduleList">
-                <!-- Rendered by JS -->
+    <!-- ─── Learning View (full-screen when a module is open) ─── -->
+    <div class="learning-view hidden" id="learningView">
+        <!-- Left Sidebar — Module Navigator -->
+        <aside class="lv-sidebar" id="lvSidebar">
+            <div class="lv-sidebar-header">
+                <button class="lv-back-btn" id="lvBackBtn" title="Back to overview">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="lv-course-title" id="lvCourseTitle">Course</div>
             </div>
-        </div>
+            <div class="lv-progress-bar">
+                <div class="lv-progress-fill" id="lvProgressFill" style="width:0%"></div>
+            </div>
+            <div class="lv-module-nav" id="lvModuleNav">
+                <!-- Filled by JS -->
+            </div>
+        </aside>
 
-        <!-- Module Content Viewer -->
-        <div class="module-viewer hidden" id="moduleViewer">
-            <div class="viewer-header">
-                <h3 id="viewerTitle">Module Title</h3>
-                <button class="viewer-close" id="viewerClose">
+        <!-- Main Content Area -->
+        <main class="lv-main">
+            <!-- Top bar inside learning view -->
+            <div class="lv-topbar">
+                <div class="lv-topbar-left">
+                    <button class="lv-sidebar-toggle" id="lvSidebarToggle" title="Toggle sidebar">
+                        <span class="material-icons">menu</span>
+                    </button>
+                    <span class="lv-module-label" id="lvModuleLabel">Module 1 of 5</span>
+                </div>
+                <div class="lv-topbar-right">
+                    <button class="lv-tool-btn" id="lvAiToggle" title="Ask AI">
+                        <span class="material-icons">smart_toy</span>
+                        <span class="lv-tool-label">Ask AI</span>
+                    </button>
+                    <button class="lv-tool-btn" id="lvBookmarkBtn" title="Bookmark">
+                        <span class="material-icons">bookmark_border</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="lv-content-scroll" id="lvContentScroll">
+                <article class="lv-article" id="lvArticle">
+                    <!-- Module HTML content rendered here -->
+                </article>
+
+                <!-- Reading progress indicator -->
+                <div class="lv-reading-end">
+                    <div class="lv-end-divider"></div>
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>You've reached the end of this module</p>
+                </div>
+
+                <!-- Bottom Navigation -->
+                <div class="lv-bottom-nav">
+                    <button class="lv-nav-btn lv-prev-btn" id="lvPrevBtn">
+                        <span class="material-icons">arrow_back</span>
+                        <div class="lv-nav-btn-text">
+                            <small>Previous</small>
+                            <span id="lvPrevLabel">—</span>
+                        </div>
+                    </button>
+                    <button class="lv-complete-btn" id="lvCompleteBtn">
+                        <span class="material-icons">check_circle</span> Mark Complete &amp; Continue
+                    </button>
+                    <button class="lv-nav-btn lv-next-btn" id="lvNextBtn">
+                        <div class="lv-nav-btn-text" style="text-align:right">
+                            <small>Next</small>
+                            <span id="lvNextLabel">—</span>
+                        </div>
+                        <span class="material-icons">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Panel — AI Chat -->
+        <aside class="lv-ai-panel hidden" id="lvAiPanel">
+            <div class="lv-ai-header">
+                <h4><span class="material-icons">smart_toy</span> AI Tutor</h4>
+                <button class="lv-ai-close" id="lvAiClose">
                     <span class="material-icons">close</span>
                 </button>
             </div>
-            <div class="viewer-body" id="viewerBody">
-                <p>Module content goes here...</p>
+            <div class="lv-ai-messages" id="lvAiMessages">
+                <div class="lv-ai-msg bot">
+                    <span class="material-icons lv-ai-avatar">smart_toy</span>
+                    <div class="lv-ai-bubble">Hi! I'm your AI tutor. Ask me anything about the module you're studying. I can explain concepts, give examples, or quiz you on the material.</div>
+                </div>
             </div>
-            <div class="viewer-actions">
-                <button class="btn-secondary" id="viewerPrev">
-                    <span class="material-icons">arrow_back</span> Previous
-                </button>
-                <button class="btn-primary" id="viewerComplete">
-                    <span class="material-icons">check_circle</span> Mark Complete
-                </button>
-                <button class="btn-secondary" id="viewerNext">
-                    Next <span class="material-icons">arrow_forward</span>
-                </button>
+            <div class="lv-ai-input-area">
+                <div class="lv-ai-quick-actions">
+                    <button class="lv-quick-btn" data-prompt="Explain this module in simple terms">Simplify</button>
+                    <button class="lv-quick-btn" data-prompt="Give me a real-world example">Example</button>
+                    <button class="lv-quick-btn" data-prompt="Quiz me on this module">Quiz me</button>
+                    <button class="lv-quick-btn" data-prompt="Summarize the key points">Summary</button>
+                </div>
+                <div class="lv-ai-input-row">
+                    <input type="text" id="lvAiInput" placeholder="Ask a question about this module...">
+                    <button id="lvAiSendBtn" class="lv-ai-send">
+                        <span class="material-icons">send</span>
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <!-- Ask AI about this course -->
-        <div class="ai-section">
-            <h2 class="section-title">
-                <span class="material-icons">smart_toy</span> Ask AI About This Course
-            </h2>
-            <div class="ai-prompt-box">
-                <input type="text" id="aiQuestion" placeholder="Ask a question about this course content...">
-                <button id="aiAskBtn" class="btn-primary">
-                    <span class="material-icons">send</span>
-                </button>
-            </div>
-            <div class="ai-response hidden" id="aiResponse">
-                <div class="ai-response-text" id="aiResponseText"></div>
-            </div>
-        </div>
-    </main>
+        </aside>
+    </div>
 
     <script src="auth-helper.js?v=2"></script>
     <script src="user-menu.js"></script>

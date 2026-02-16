@@ -11,8 +11,8 @@ import uuid
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from backend/.env (relative to this file)
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 # Import our custom modules
 from services.groq_service import GroqService

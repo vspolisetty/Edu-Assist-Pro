@@ -2,7 +2,9 @@
     {
       "id": "compliance",
       "name": "Compliance Training",
-      "icon": "�",
+      "icon": "📋",
+      "description": "Master corporate compliance, policies, and regulatory requirements",
+      "image": "https://images.unsplash.com/photo-1450101499163-c8848e968785?w=400&h=250&fit=crop",
       "topics": [
         "Company Policies",
         "Data Privacy & GDPR",
@@ -18,6 +20,8 @@
       "id": "security",
       "name": "Security Awareness",
       "icon": "🔒",
+      "description": "Learn cybersecurity fundamentals and protect organizational assets",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=250&fit=crop",
       "topics": [
         "Cybersecurity Basics",
         "Phishing Prevention",
@@ -32,7 +36,9 @@
     {
       "id": "leadership",
       "name": "Leadership Development",
-      "icon": "�",
+      "icon": "🎯",
+      "description": "Develop leadership skills for managing teams and driving results",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop",
       "topics": [
         "Team Management",
         "Communication Skills",
@@ -48,6 +54,8 @@
       "id": "technical",
       "name": "Technical Skills",
       "icon": "⚙️",
+      "description": "Build technical expertise in tools, processes, and quality standards",
+      "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
       "topics": [
         "Tools & Systems",
         "Process Documentation",
@@ -62,7 +70,9 @@
     {
       "id": "hr_policies",
       "name": "HR & Benefits",
-      "icon": "�",
+      "icon": "👥",
+      "description": "Understand HR policies, benefits, and professional development",
+      "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=250&fit=crop",
       "topics": [
         "Employee Handbook",
         "Benefits Overview",
@@ -78,6 +88,8 @@
       "id": "customer_service",
       "name": "Customer Relations",
       "icon": "🤝",
+      "description": "Excel in client communication, service standards, and relationship building",
+      "image": "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=400&h=250&fit=crop",
       "topics": [
         "Client Communication",
         "Service Standards",
@@ -92,7 +104,9 @@
     {
       "id": "operations",
       "name": "Operations",
-      "icon": "�",
+      "icon": "🏭",
+      "description": "Learn operations management, risk assessment, and continuous improvement",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop",
       "topics": [
         "Standard Procedures",
         "Risk Management",
@@ -108,6 +122,8 @@
       "id": "professional_dev",
       "name": "Professional Growth",
       "icon": "📈",
+      "description": "Advance your career with essential professional development skills",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop",
       "topics": [
         "Career Planning",
         "Public Speaking",

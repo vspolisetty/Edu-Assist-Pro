@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edu Assist Pro - Training Portal</title>
+    <title>Edu Assist Pro - AI Training Assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
                 <span class="brand-text">Edu Assist Pro</span>
             </a>
         </div>
-        
         <div class="nav-center">
             <a href="courses.html" class="nav-link">
                 <span class="material-icons">menu_book</span>
@@ -38,12 +37,10 @@
                 <span class="nav-link-text">Admin</span>
             </a>
         </div>
-        
         <div class="nav-right">
             <button class="nav-button theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <span class="material-icons">light_mode</span>
             </button>
-            
             <div class="user-menu-wrapper">
                 <button class="user-menu" id="userMenuBtn" aria-label="User profile">
                     <span class="material-icons">account_circle</span>
@@ -76,101 +73,80 @@
                 <h3>Training Modules</h3>
             </div>
             <div class="subjects-list" id="subjects-list">
-                <!-- Subjects will be populated by JavaScript -->
+                <!-- Populated by JS -->
             </div>
         </aside>
 
         <!-- Main Chat Area -->
         <main class="chat-main">
-            <div class="chat-messages" id="chat-messages">
-                <div class="welcome-message">
-                    <div class="welcome-content">
-                        <h2>Welcome to Edu Assist Pro</h2>
-                        <p>Your AI-powered training assistant. Ask questions about any training module or upload documents for context-aware learning.</p>
-                    </div>
+            <!-- Context Bar (shown when a topic is active) -->
+            <div class="chat-context-bar" id="chat-context-bar" style="display:none;">
+                <div class="context-info">
+                    <span class="material-icons">topic</span>
+                    <span id="context-subject">Module</span>
+                    <span class="context-sep">›</span>
+                    <span id="context-topic">Topic</span>
                 </div>
-                
-                <!-- Sample messages -->
-                <div class="message ai-message">
-                    <div class="message-avatar">
-                        <span class="material-icons">smart_toy</span>
-                    </div>
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>Hello! I'm your AI training assistant. I can help you with your current training module. What would you like to learn about today?</p>
-                        </div>
-                        <div class="message-actions">
-                            <button class="action-btn" title="Copy message">
-                                <span class="material-icons">content_copy</span>
-                            </button>
-                            <button class="action-btn" title="Save message">
-                                <span class="material-icons">bookmark</span>
-                            </button>
-                            <button class="action-btn" title="Like message">
-                                <span class="material-icons">thumb_up</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="message student-message">
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>Can you explain the compliance framework?</p>
-                        </div>
-                        <div class="message-time">2:34 PM</div>
-                    </div>
-                </div>
-                
-                <div class="message ai-message">
-                    <div class="message-avatar">
-                        <span class="material-icons">smart_toy</span>
-                    </div>
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>Of course! The compliance framework is a structured set of guidelines and best practices that ensure organizational alignment with regulatory requirements. The key components include:</p>
-                            <div class="formula-block">
-                                <code>Policy → Procedure → Control → Monitoring → Reporting</code>
-                            </div>
-                            <p>Each component works together to maintain <strong>regulatory compliance</strong> and <strong>risk management</strong>.</p>
-                            <p>Would you like me to dive deeper into any of these components?</p>
-                        </div>
-                        <div class="message-actions">
-                            <button class="action-btn" title="Copy message">
-                                <span class="material-icons">content_copy</span>
-                            </button>
-                            <button class="action-btn" title="Save message">
-                                <span class="material-icons">bookmark</span>
-                            </button>
-                            <button class="action-btn" title="Like message">
-                                <span class="material-icons">thumb_up</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <button class="context-clear" id="clear-context-btn" title="Back to home">
+                    <span class="material-icons">close</span>
+                </button>
             </div>
-            
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Screen -->
+                <div id="welcome-screen" class="welcome-screen">
+                    <div class="welcome-hero">
+                        <div class="welcome-icon-ring">
+                            <span class="material-icons">psychology</span>
+                        </div>
+                        <h2>Welcome to Edu Assist Pro</h2>
+                        <p>Your AI-powered corporate training assistant. Select a module below or type a question to get started.</p>
+                    </div>
+
+                    <h3 class="section-label"><span class="material-icons">explore</span> Explore Training Modules</h3>
+                    <div class="topic-cards-grid" id="topic-cards-grid"></div>
+
+                    <h3 class="section-label"><span class="material-icons">bolt</span> Quick Start</h3>
+                    <div class="quick-actions-grid">
+                        <button class="quick-action-btn" data-question="What compliance training do I need to complete?">
+                            <span class="material-icons">fact_check</span>
+                            <span>Required Training</span>
+                        </button>
+                        <button class="quick-action-btn" data-question="What are the top cybersecurity threats I should know about?">
+                            <span class="material-icons">security</span>
+                            <span>Security Essentials</span>
+                        </button>
+                        <button class="quick-action-btn" data-question="How can I improve my leadership skills?">
+                            <span class="material-icons">groups</span>
+                            <span>Leadership Tips</span>
+                        </button>
+                        <button class="quick-action-btn" data-question="Explain our company's data privacy policy and GDPR compliance">
+                            <span class="material-icons">privacy_tip</span>
+                            <span>Data Privacy Guide</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Chat messages will be appended here by JS -->
+            </div>
+
             <!-- Input Area -->
             <div class="input-area">
                 <div class="input-controls">
-                    <button class="input-btn mic-btn" id="mic-btn" aria-label="Voice input">
+                    <button class="input-btn" id="mic-btn" aria-label="Voice input">
                         <span class="material-icons">mic</span>
                     </button>
-                    
                     <button class="input-btn attach-btn" aria-label="Attach file">
                         <span class="material-icons">attach_file</span>
                     </button>
-                    
                     <div class="eli5-toggle">
                         <label class="toggle-label">
                             <input type="checkbox" id="eli5-toggle">
                             <span class="toggle-slider"></span>
-                            <span class="toggle-text">Simplified Mode</span>
+                            <span class="toggle-text">Simple</span>
                         </label>
                     </div>
-                    
                     <div class="message-input-container">
-                        <input type="text" class="message-input" id="message-input" placeholder="Ask me anything...">
+                        <input type="text" class="message-input" id="message-input" placeholder="Ask me anything about your training…">
                         <button class="send-btn" id="send-btn" aria-label="Send message">
                             <span class="material-icons">send</span>
                         </button>
@@ -186,37 +162,18 @@
                 <button class="tab-btn" data-tab="questions">Suggested</button>
                 <button class="tab-btn" data-tab="bookmarks">Saved</button>
             </div>
-            
             <div class="tab-content">
                 <div class="tab-panel active" id="topics-panel">
-                    <h3>Related Modules</h3>
-                    <div class="topics-content">
-                        <div class="topic-list">
-                            <!-- Topics will be dynamically loaded here -->
-                        </div>
-                    </div>
+                    <h3>Related Subtopics</h3>
+                    <div class="topic-list" id="topic-list"></div>
                 </div>
-                
                 <div class="tab-panel" id="questions-panel">
                     <h3>Suggested Questions</h3>
-                    <div class="suggested-questions">
-                        <button class="question-btn">What are the key compliance requirements?</button>
-                        <button class="question-btn">How do I complete this training module?</button>
-                        <button class="question-btn">Explain the assessment criteria</button>
-                        <button class="question-btn">What are the prerequisites for this course?</button>
-                        <button class="question-btn">Show me a summary of this module</button>
-                    </div>
+                    <div class="suggested-questions" id="suggested-questions"></div>
                 </div>
-                
                 <div class="tab-panel" id="bookmarks-panel">
                     <h3>Saved Resources</h3>
-                    <div class="bookmarks-list">
-                        <div class="bookmark-item">
-                            <p><strong>Q:</strong> What are the key compliance requirements?</p>
-                            <p><strong>A:</strong> The compliance framework follows Policy → Procedure → Control → Monitoring → Reporting</p>
-                            <span class="bookmark-date">Yesterday</span>
-                        </div>
-                    </div>
+                    <div class="bookmarks-list" id="bookmarks-list"></div>
                 </div>
             </div>
         </aside>
@@ -227,4 +184,5 @@
     <script src="script.js"></script>
     <script src="dashboard.js"></script>
     <script src="rag-integration.js"></script>
+</body>
 </html>

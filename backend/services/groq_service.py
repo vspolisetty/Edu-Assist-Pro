@@ -44,17 +44,29 @@ class GroqService:
     
     async def get_default_model(self) -> str:
         """
-        Get the first available model from Groq
+        Get the best available model from Groq, preferring well-known ones.
         """
+        # Preferred models in order of preference (current as of 2025/2026)
+        PREFERRED = [
+            "llama-3.3-70b-versatile",
+            "llama-3.1-8b-instant",
+            "llama3-70b-8192",
+            "meta-llama/llama-4-scout-17b-16e-instruct",
+            "mixtral-8x7b-32768",
+            "gemma2-9b-it",
+        ]
         if self.default_model is None:
             models = await self.get_available_models()
-            if models:
-                self.default_model = models[0]
-                print(f"✅ Using default model: {self.default_model}")
-            else:
-                # Fallback if API call fails
-                self.default_model = "llama3-8b-8192"
-                print(f"⚠️ Using fallback model: {self.default_model}")
+            # Pick the first preferred model that's actually available
+            chosen = None
+            for pref in PREFERRED:
+                if pref in models:
+                    chosen = pref
+                    break
+            if not chosen and models:
+                chosen = models[0]
+            self.default_model = chosen or "llama-3.3-70b-versatile"
+            print(f"✅ Using default model: {self.default_model}")
         return self.default_model
         
     async def chat_completion(
