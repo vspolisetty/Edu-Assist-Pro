@@ -89,7 +89,7 @@ class EduAssist {
     setupEventListeners() {
         const $ = id => document.getElementById(id);
 
-        $('theme-toggle')?.addEventListener('click', () => this.toggleTheme());
+        // Theme toggle - handled by theme-manager.js
         $('send-btn')?.addEventListener('click', () => this.sendMessage());
         $('mic-btn')?.addEventListener('click', () => this.toggleRecording());
         $('clear-context-btn')?.addEventListener('click', () => this.clearContext());
@@ -468,15 +468,20 @@ class EduAssist {
     }
 
     /* ── Theme ─────────────────────────────────────────────── */
-    setupTheme() { this.setTheme(localStorage.getItem('theme') || 'light'); }
+    setupTheme() {
+        // Handled by theme-manager.js
+    }
     setTheme(t) {
-        document.body.className = `${t}-theme`;
-        const icon = document.querySelector('#theme-toggle .material-icons');
-        if (icon) icon.textContent = t === 'dark' ? 'dark_mode' : 'light_mode';
-        localStorage.setItem('theme', t);
+        // Handled by theme-manager.js
+        if (window.ThemeManager) {
+            window.ThemeManager.setTheme(t);
+        }
     }
     toggleTheme() {
-        this.setTheme(document.body.className.includes('dark') ? 'light' : 'dark');
+        // Handled by theme-manager.js
+        if (window.ThemeManager) {
+            window.ThemeManager.toggle();
+        }
     }
 
     /* ── Voice (demo) ──────────────────────────────────────── */

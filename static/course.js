@@ -29,19 +29,12 @@ class CourseDetail {
 
     /* ── Theme ── */
     applyTheme() {
-        const saved = localStorage.getItem('edu_theme');
-        if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        // Handled by theme-manager.js
     }
 
     /* ── Events ── */
     bindEvents() {
-        // Theme
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('edu_theme', isDark ? 'light' : 'dark');
-            document.querySelector('#themeToggle .material-icons').textContent = isDark ? 'dark_mode' : 'light_mode';
-        });
+        // Theme - handled by theme-manager.js
 
         // Overview actions
         document.getElementById('heroActionBtn').addEventListener('click', () => this.handleHeroAction());
@@ -308,6 +301,9 @@ class CourseDetail {
             `;
         }
 
+        // Initialize interactive quizzes
+        this.initInteractiveQuizzes(article);
+
         // Update complete button state
         const progressMap = this.getProgressMap();
         const p = progressMap[mod.id];
@@ -345,6 +341,163 @@ class CourseDetail {
         this.renderLvContent();
         this.updateLvNav();
         document.getElementById('lvContentScroll').scrollTop = 0;
+    }
+
+    /* ── Interactive Quizzes ── */
+    initInteractiveQuizzes(container) {
+        // Find all quiz options and make them clickable
+        const quizOptions = container.querySelectorAll('.quiz-option');
+        
+        quizOptions.forEach(option => {
+            // Prevent double initialization
+            if (option.dataset.initialized) return;
+            option.dataset.initialized = 'true';
+            
+            option.style.cursor = 'pointer';
+            option.style.transition = 'all 0.2s ease';
+            
+            option.addEventListener('click', () => {
+                // Find parent ul (quiz container)
+                const quizContainer = option.closest('ul');
+                if (!quizContainer) return;
+                
+                // Check if already answered
+                if (quizContainer.dataset.answered === 'true') return;
+                
+                // Mark quiz as answered
+                quizContainer.dataset.answered = 'true';
+                
+                // Get all options in this quiz
+                const allOptions = quizContainer.querySelectorAll('.quiz-option');
+                
+                // Check if selected answer is correct
+                const isCorrect = option.dataset.correct === 'true';
+                
+                // Style all options
+                allOptions.forEach(opt => {
+                    opt.style.cursor = 'default';
+                    
+                    if (opt === option) {
+                        // Selected option
+                        if (isCorrect) {
+                            opt.style.background = '#d4edda';
+                            opt.style.borderLeft = '4px solid #28a745';
+                            opt.innerHTML = '✅ ' + opt.innerHTML;
+                        } else {
+                            opt.style.background = '#f8d7da';
+                            opt.style.borderLeft = '4px solid #dc3545';
+                            opt.innerHTML = '❌ ' + opt.innerHTML;
+                        }
+                    } else if (opt.dataset.correct === 'true') {
+                        // Show the correct answer
+                        opt.style.background = '#d4edda';
+                        opt.style.borderLeft = '4px solid #28a745';
+                        opt.innerHTML = '✅ ' + opt.innerHTML;
+                    } else {
+                        // Other incorrect options
+                        opt.style.opacity = '0.6';
+                    }
+                });
+                
+                // Show any hidden answer reveal text
+                const parent = quizContainer.closest('div');
+                if (parent) {
+                    const reveal = parent.querySelector('.quiz-answer-reveal');
+                    if (reveal) {
+                        reveal.style.display = 'block';
+                        reveal.style.marginTop = '12px';
+                        reveal.style.padding = '10px';
+                        reveal.style.background = isCorrect ? '#d4edda' : '#fff3cd';
+                        reveal.style.borderRadius = '6px';
+                    }
+                }
+                
+                // Show feedback message
+                const feedbackEl = document.createElement('div');
+                feedbackEl.className = 'quiz-feedback';
+                feedbackEl.style.cssText = `
+                    margin-top: 12px;
+                    padding: 12px 16px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                `;
+                
+                if (isCorrect) {
+                    feedbackEl.style.background = '#d4edda';
+                    feedbackEl.style.color = '#155724';
+                    feedbackEl.innerHTML = '<span style="font-size:1.2em">🎉</span> Correct! Great job!';
+                } else {
+                    feedbackEl.style.background = '#fff3cd';
+                    feedbackEl.style.color = '#856404';
+                    feedbackEl.innerHTML = '<span style="font-size:1.2em">💡</span> Not quite. The correct answer is highlighted above.';
+                }
+                
+                quizContainer.insertAdjacentElement('afterend', feedbackEl);
+            });
+            
+            // Hover effects
+            option.addEventListener('mouseenter', () => {
+                const quizContainer = option.closest('ul');
+                if (quizContainer?.dataset.answered === 'true') return;
+                option.style.background = '#e8f4ff';
+                option.style.transform = 'translateX(4px)';
+            });
+            
+            option.addEventListener('mouseleave', () => {
+                const quizContainer = option.closest('ul');
+                if (quizContainer?.dataset.answered === 'true') return;
+                option.style.background = '#fff';
+                option.style.transform = 'translateX(0)';
+            });
+        });
+        
+        // Also handle legacy format (li items with ✅ already in text)
+        this.convertLegacyQuizzes(container);
+    }
+    
+    convertLegacyQuizzes(container) {
+        // Find all li elements that contain quiz-like text (A. B. C. D.)
+        // and convert them to interactive if they're not already
+        const allLists = container.querySelectorAll('ul');
+        
+        allLists.forEach(ul => {
+            // Skip if already a quiz container
+            if (ul.querySelector('.quiz-option')) return;
+            
+            const items = ul.querySelectorAll('li');
+            let hasQuizPattern = false;
+            let correctIndex = -1;
+            
+            items.forEach((li, idx) => {
+                const text = li.textContent.trim();
+                // Check if this looks like a quiz option (A. B. C. D.)
+                if (/^[✅❌]?\s*[A-D]\.\s/.test(text)) {
+                    hasQuizPattern = true;
+                    if (text.startsWith('✅')) {
+                        correctIndex = idx;
+                    }
+                }
+            });
+            
+            // If this looks like a quiz, convert it
+            if (hasQuizPattern && correctIndex >= 0) {
+                items.forEach((li, idx) => {
+                    const text = li.textContent.trim();
+                    if (/^[✅❌]?\s*[A-D]\.\s/.test(text)) {
+                        li.className = 'quiz-option';
+                        li.dataset.correct = (idx === correctIndex) ? 'true' : 'false';
+                        // Remove leading ✅ from text
+                        li.textContent = text.replace(/^✅\s*/, '');
+                    }
+                });
+                
+                // Re-initialize this quiz
+                this.initInteractiveQuizzes(ul.parentElement || ul);
+            }
+        });
     }
 
     /* ── Module Completion ── */

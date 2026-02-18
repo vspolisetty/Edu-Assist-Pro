@@ -86,7 +86,7 @@ python3 app.py
 
 Open your browser and go to:
 - **Login Page**: http://localhost:3000/static/login.html
-- **Demo Credentials**: Username: `a`, Password: `a`
+- **Demo Credentials**: Username: `test`, Password: `test`
 
 ---
 
@@ -218,7 +218,7 @@ curl -X POST http://localhost:3000/api/chat \
 ## 🎮 Usage Guide
 
 ### 1. Login
-- Use demo credentials: `a` / `a`
+- Use demo credentials: `test` / `test`
 - Or any username/password (demo mode accepts all)
 
 ### 2. Chat with AI

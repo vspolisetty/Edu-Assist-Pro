@@ -352,20 +352,7 @@
 
     // ─── Theme ──────────────────────────────────────────────────────────────
     function setupTheme() {
-        var saved = localStorage.getItem('theme') || 'light';
-        document.body.className = saved + '-theme';
-
-        var toggle = document.getElementById('theme-toggle');
-        var icon = toggle.querySelector('.material-icons');
-        icon.textContent = saved === 'dark' ? 'dark_mode' : 'light_mode';
-
-        toggle.addEventListener('click', function () {
-            var current = document.body.className.includes('dark') ? 'dark' : 'light';
-            var next = current === 'dark' ? 'light' : 'dark';
-            document.body.className = next + '-theme';
-            icon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
-            localStorage.setItem('theme', next);
-        });
+        // Handled by theme-manager.js
     }
 
     // ─── Start ──────────────────────────────────────────────────────────────

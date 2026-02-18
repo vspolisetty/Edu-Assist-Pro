@@ -93,9 +93,9 @@ def _seed_users(conn):
         },
         {
             "id": str(uuid.uuid4()),
-            "username": "a",
+            "username": "test",
             "email": "demo@eduassistpro.com",
-            "password_hash": _hash_password("a"),
+            "password_hash": _hash_password("test"),
             "name": "Demo Trainee",
             "role": "trainee",
             "department": "Engineering",

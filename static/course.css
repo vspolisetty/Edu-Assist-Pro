@@ -652,3 +652,98 @@ a { text-decoration: none; color: inherit; }
     .lv-nav-btn { min-width: auto; width: 100%; justify-content: center; }
     .lv-article { padding: 24px 16px 16px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Interactive Quiz Styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.quiz-option {
+    list-style: none;
+    margin: 8px 0;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.quiz-option:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.quiz-option[data-correct="true"].selected,
+.quiz-option.correct {
+    background: #d4edda;
+    border-color: #28a745;
+    border-left-width: 4px;
+}
+
+.quiz-option[data-correct="false"].selected,
+.quiz-option.incorrect {
+    background: #f8d7da;
+    border-color: #dc3545;
+    border-left-width: 4px;
+}
+
+.quiz-option.dimmed {
+    opacity: 0.6;
+}
+
+.quiz-container {
+    padding: 0;
+    margin: 16px 0;
+}
+
+.quiz-container[data-answered="true"] .quiz-option {
+    cursor: default;
+}
+
+.quiz-container[data-answered="true"] .quiz-option:hover {
+    transform: none;
+}
+
+.quiz-feedback {
+    animation: fadeIn 0.3s ease;
+}
+
+.quiz-answer-reveal {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark mode quiz adjustments */
+[data-theme="dark"] .quiz-option {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .quiz-option:hover {
+    background: var(--surface-hover);
+}
+
+[data-theme="dark"] .quiz-option[data-correct="true"].selected,
+[data-theme="dark"] .quiz-option.correct {
+    background: rgba(40, 167, 69, 0.2);
+    border-color: #28a745;
+}
+
+[data-theme="dark"] .quiz-option[data-correct="false"].selected,
+[data-theme="dark"] .quiz-option.incorrect {
+    background: rgba(220, 53, 69, 0.2);
+    border-color: #dc3545;
+}
+
+[data-theme="dark"] .quiz-feedback {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+}
+

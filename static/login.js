@@ -11,9 +11,7 @@ class LoginManager {
     }
     
     setupEventListeners() {
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => this.toggleTheme());
+        // Theme toggle - handled by theme-manager.js
         
         // Login form
         const loginForm = document.getElementById('login-form');
@@ -32,33 +30,26 @@ class LoginManager {
     }
     
     setupTheme() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        this.setTheme(savedTheme);
+        // Handled by theme-manager.js
     }
     
     setTheme(theme) {
-        document.body.className = `${theme}-theme`;
-        const themeToggle = document.getElementById('theme-toggle');
-        const icon = themeToggle.querySelector('.material-icons');
-        
-        if (theme === 'dark') {
-            icon.textContent = 'dark_mode';
-        } else {
-            icon.textContent = 'light_mode';
+        // Handled by theme-manager.js
+        if (window.ThemeManager) {
+            window.ThemeManager.setTheme(theme);
         }
-        
-        localStorage.setItem('theme', theme);
     }
     
     toggleTheme() {
-        const currentTheme = document.body.className.includes('dark') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        this.setTheme(newTheme);
+        // Handled by theme-manager.js
+        if (window.ThemeManager) {
+            window.ThemeManager.toggle();
+        }
     }
     
     fillDemoCredentials() {
-        document.getElementById('username').value = 'a';
-        document.getElementById('password').value = 'a';
+        document.getElementById('username').value = 'test';
+        document.getElementById('password').value = 'test';
         
         // Add visual feedback
         const demoBtn = document.getElementById('demo-btn');

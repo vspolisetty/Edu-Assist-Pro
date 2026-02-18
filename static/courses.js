@@ -24,20 +24,12 @@ class CoursesPage {
 
     /* ── Theme ── */
     applyTheme() {
-        const saved = localStorage.getItem('edu_theme');
-        if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        // Handled by theme-manager.js
     }
 
     /* ── Events ── */
     bindEvents() {
-        // Theme toggle
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('edu_theme', isDark ? 'light' : 'dark');
-            const icon = document.querySelector('#themeToggle .material-icons');
-            icon.textContent = isDark ? 'dark_mode' : 'light_mode';
-        });
+        // Theme toggle - handled by theme-manager.js
 
         // Search
         document.getElementById('searchInput').addEventListener('input', (e) => {

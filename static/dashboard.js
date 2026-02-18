@@ -33,17 +33,7 @@
 
     // ─── Theme ───────────────────────────────────────────────────────────────
     function setupTheme() {
-        const saved = localStorage.getItem('theme') || localStorage.getItem('edu_theme') || 'light';
-        document.documentElement.setAttribute('data-theme', saved);
-        const btn = document.getElementById('themeToggle');
-        btn.querySelector('.material-icons').textContent = saved === 'dark' ? 'light_mode' : 'dark_mode';
-        btn.addEventListener('click', () => {
-            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            localStorage.setItem('edu_theme', next);
-            btn.querySelector('.material-icons').textContent = next === 'dark' ? 'light_mode' : 'dark_mode';
-        });
+        // Handled by theme-manager.js - this function is kept for backward compatibility
     }
 
     function setupUser() {

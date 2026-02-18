@@ -80,7 +80,8 @@
         const existing = document.getElementById('settingsModal');
         if (existing) existing.remove();
 
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+        const isDark = (window.ThemeManager && window.ThemeManager.getTheme() === 'dark')
+                    || document.documentElement.getAttribute('data-theme') === 'dark'
                     || document.body.classList.contains('dark-theme');
 
         const modal = document.createElement('div');
@@ -135,16 +136,21 @@
 
         // Dark mode toggle inside settings
         document.getElementById('settingsDarkMode').addEventListener('change', function () {
-            if (this.checked) {
-                document.body.classList.remove('light-theme');
-                document.body.classList.add('dark-theme');
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+            if (window.ThemeManager) {
+                window.ThemeManager.setTheme(this.checked ? 'dark' : 'light');
             } else {
-                document.body.classList.remove('dark-theme');
-                document.body.classList.add('light-theme');
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
+                // Fallback
+                if (this.checked) {
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    document.body.classList.add('light-theme');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
             }
         });
 
