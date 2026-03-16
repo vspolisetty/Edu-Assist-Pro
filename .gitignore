@@ -57,3 +57,5 @@ logs/
 .DS_Store
 Thumbs.db
 backend/venv_mac/
+*.db-shm
+*.db-wal
