@@ -747,3 +747,43 @@ a { text-decoration: none; color: inherit; }
     color: var(--text) !important;
 }
 
+/* ── Dark mode overrides for inline-styled content tables ── */
+[data-theme="dark"] .lv-article table {
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .lv-article th,
+[data-theme="dark"] .lv-article td {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .lv-article tr:nth-child(1) th,
+[data-theme="dark"] .lv-article thead th {
+    background: var(--surface-hover) !important;
+    color: var(--text) !important;
+}
+[data-theme="dark"] .lv-article tr:nth-child(even) td {
+    background: rgba(51, 65, 85, 0.5) !important;
+}
+[data-theme="dark"] .lv-article tr:hover td {
+    background: rgba(99, 179, 237, 0.08) !important;
+}
+/* Override inline backgrounds on all content elements inside article */
+[data-theme="dark"] .lv-article div[style*="background"],
+[data-theme="dark"] .lv-article p[style*="background"],
+[data-theme="dark"] .lv-article li[style*="background"],
+[data-theme="dark"] .lv-article span[style*="background"] {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+[data-theme="dark"] .lv-article summary[style] {
+    background: var(--surface-hover) !important;
+    color: var(--text) !important;
+}
+[data-theme="dark"] .lv-article details div[style*="background"] {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+
